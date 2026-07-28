@@ -4,7 +4,7 @@
     "clebsch_factorization.pdf"
   ],
   "excluded_symlinks": [],
-  "exporter_blob": "a4e8889f4efa6b18e800c4323d57c5439bce8ff9",
+  "exporter_blob": "d38f45b035738e161b53233b597538b885c4d039",
   "files": [
     {
       "bytes": 135,
@@ -19,17 +19,17 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "a18bd902448f999708a11a50cfb2d641a4ddc18520b02ada7c5285773ac64035",
+      "sha256": "986659a46bd292341e76e4d5dbee957eea23006eee94bc1496de0a18b6462f0a",
       "source_blob": null
     },
     {
-      "bytes": 1576,
+      "bytes": 1644,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "1db8c865f91731fc7e2ef83a2cd139d2371580aecbc46072951ff7521c87e106",
-      "source_blob": "7490401f920c792bc3d6a628bb611ecbddced363"
+      "sha256": "2ea38b3a6a8ab866c501ecdada03851892137cbc6dc194cfd97a5da73b276f60",
+      "source_blob": "48b29696e41cf18da54be1c72ae7320bf2deb710"
     },
     {
       "bytes": 91903,
@@ -343,8 +343,8 @@
       "path": "verification/evidence_fingerprint.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "87e3c45d184cbf9a5aef260323461d23f19e7d861a8776620a9b14ec45e6de96",
-      "source_blob": "b6baeade83774ab2e4338c2bacaaa7d76af813e5"
+      "sha256": "6686401f77a6d0a0043214969f11f7b72a77d66710238f345523303a76234bab",
+      "source_blob": "841a78db5c8b9715647bff794189cba55740d6ba"
     },
     {
       "bytes": 4499,
@@ -411,7 +411,7 @@
   ],
   "paper_registry_sha256": "e3d7a09841ddaa925ef9196f1d36df4be5efa06c2fb51d1e557cd6cdde971f22",
   "repository": "clebsch-factorization",
-  "repository_map_sha256": "37ccce3597cd35fc677aba205ceb7fec6267bc6d5b2b0045639c67015033c1ac",
+  "repository_map_sha256": "c6ce20755b904d93ebf33e840efa9c6d3eef33b2a5777679a3c1e5e2629c0c7f",
   "schema_version": 1,
-  "source_commit": "0cc9bfb5fe49f90b93397c93bada291a85228838"
+  "source_commit": "9d5c540e06b2acd4083c498fb6d0977db708af4e"
 }
