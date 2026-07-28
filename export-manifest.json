@@ -1,17 +1,15 @@
 {
   "excluded_path_count": 0,
-  "excluded_release_outputs": [
-    "clebsch_factorization.pdf"
-  ],
+  "excluded_release_outputs": [],
   "excluded_symlinks": [],
   "exporter_blob": "d38f45b035738e161b53233b597538b885c4d039",
   "files": [
     {
-      "bytes": 135,
+      "bytes": 108,
       "mode": "100644",
       "path": ".gitignore",
       "role": "export-support",
-      "sha256": "9afe58e688e2882e0367970ebe28c866357735ec28b4050ecff3c4afd6db3045",
+      "sha256": "8aec252fe1e8e2a04924eeac30581deea8368b151c9e82d6601a1d6393be8b27",
       "source_blob": null
     },
     {
@@ -24,11 +22,20 @@
       "source_blob": "c28953ec1b7c9b4d9a743a6228bdf4f038ece165"
     },
     {
+      "bytes": 470,
+      "mode": "100644",
+      "path": "LICENSE",
+      "rewrites": [],
+      "role": "support",
+      "sha256": "55bd30dbbfb4a62d77bfd74a183e68ac3fa392c12802e0b56ad02613b9248d7c",
+      "source_blob": "48fe1688b86d4e1feef1d929170e74cc8adff356"
+    },
+    {
       "bytes": 302,
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "39f63812397b185b9a23afec480eb43f2824f816647668032f69210c193179a2",
+      "sha256": "599e0db2d3ee84e3addafe475f2e561a9b9a64095ed09e4ed88545a329a9cca3",
       "source_blob": null
     },
     {
@@ -39,6 +46,15 @@
       "role": "support",
       "sha256": "2ea38b3a6a8ab866c501ecdada03851892137cbc6dc194cfd97a5da73b276f60",
       "source_blob": "48b29696e41cf18da54be1c72ae7320bf2deb710"
+    },
+    {
+      "bytes": 200575,
+      "mode": "100644",
+      "path": "clebsch_factorization.pdf",
+      "rewrites": [],
+      "role": "release-output",
+      "sha256": "82db3d7794a9be5c34557e52a18f8685a175ea4edf1909b70ce7e03ecfb229fc",
+      "source_blob": "8a6170f9d36e5f86173b4b8f147c5090176a6cc1"
     },
     {
       "bytes": 91903,
@@ -420,7 +436,7 @@
   ],
   "paper_registry_sha256": "e3d7a09841ddaa925ef9196f1d36df4be5efa06c2fb51d1e557cd6cdde971f22",
   "repository": "clebsch-factorization",
-  "repository_map_sha256": "c6ce20755b904d93ebf33e840efa9c6d3eef33b2a5777679a3c1e5e2629c0c7f",
+  "repository_map_sha256": "ea07e62132ccdf3b29a24c1d1974a0cd7ee11b77d338c33660c732cb6889428d",
   "schema_version": 1,
-  "source_commit": "7934c752b5c6b3f147354f760067bfc9adfc6d44"
+  "source_commit": "e134b0fe8a5329472940c5e8ecaabfbee2c9e4e8"
 }
