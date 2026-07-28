@@ -1,0 +1,2254 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=29mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\cC}{\mathcal{C}}
+
+\title{Quadratic recovery and cubic orientation\\
+in conic matching quotients}
+\author{Tavis Rudd}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Restriction to a conic forgets how its marked points were paired into
+secants.  For the balanced \(B_3\) and \(H_3\) configurations, we show
+that the quotient by the conic equation nevertheless recovers the two
+factorization sheets from quadratic products of affine evaluation
+functions.  More generally, if a full
+\(\operatorname{PGL}_2(q)\)-orbit has a one-dimensional strength-two
+trade space whose two fibers are one-factorizations, then edge counting
+forces a \(q+q\) split, and subgroup classification leaves exactly these
+two orbits.  Within signed tensor moments, the first nonzero term is an
+anti-invariant cubic line that detects sheet interchange.  The
+resulting \(14\)- and \(22\)-point configurations are self-associated and
+arithmetically Gorenstein, with that signed cubic as the inverse system
+of an Artinian reduction.  For the \(A_3/\F_5\), \(B_3/\F_7\), and
+\(H_3/\F_{11}\) configurations, the difference spans have dimensions
+\(3,6,10\); in type \(H_3\), the only missing Fischer layer is
+\(Q\mathcal H_2\).  The base-choice cocycle generates
+\(H^1(\operatorname{PGL}_2(11),M_8)\), so the \(H_3\) affine quotient
+has no equivariant origin.
+\end{abstract}
+
+\noindent\textbf{Keywords.} conic ideal; secant matching; Coxeter
+configuration; self-associated points; arithmetically Gorenstein;
+cubic inverse system; modular representation.
+
+\smallskip
+\noindent\textbf{2020 Mathematics Subject Classification.} 05B25, 51E22,
+20C20, 13A02.
+
+\section{Introduction}
+
+The companion rigidity paper isolates the Clebsch hexagon through its
+uncovered syndrome locus and reconstructs its projective geometry from
+decoding data \cite{RuddRigidity2026}.  Here we begin with marked secant
+geometry and ask a complementary reconstruction question: what does
+common restriction to a conic forget, and what does the conic-ideal
+quotient remember?
+
+The answer is governed by one mechanism.  A four-endpoint switch shows
+that competing secant products differ by the conic equation, so their
+quotients form an affine configuration.  In the balanced cases,
+Hadamard squares recover an unordered bipartition of that configuration;
+the first signed tensor that survives is cubic and orients the two
+parts.  Thus quadratic data recover the factorization without choosing
+its orientation, and the first odd covariant restores that choice.
+
+\begin{center}
+\small
+\begin{tabular}{@{}c@{\qquad}c@{\qquad}c@{}}
+\toprule
+type & linear quotient & sheets/cubic\\
+\midrule
+\(A_3/\F_5\) & rank \(3\) & not applicable\\
+\(B_3/\F_7\) & rank \(6\) & recovered/oriented\\
+\(H_3/\F_{11}\) & rank \(10\) & recovered/oriented\\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The proof has two layers.  Section~\ref{sec:matching-products} proves the
+quotient and switch identities symbolically for arbitrary matchings.
+Section~\ref{sec:rank-three} obtains all three ranks from the affine
+connecting cocycle and the defining-characteristic
+\(\operatorname{SL}_2\)-modules in the Fischer decomposition.  In type
+\(B_3\), one transparent outer-sheet quotient supplies the radial line;
+type \(H_3\) uses the analogous second-Laplacian scalar after cohomology
+excludes the middle layer.  A one-dimensional strength-two trade space
+with two fibers gives the special-projective block system, and the
+one-factorization property forces both blocks to have size \(q\).  A
+maximal-subgroup argument then
+leaves only \(B_3/\F_7\) and \(H_3/\F_{11}\); the apparent \(\F_5\)
+candidate acquires an outer normalizer and has only five points.
+In Section~\ref{sec:balanced}, the defining-characteristic permutation
+module proves the sheet restriction and moment ranks, and elementary
+duality forces the nonzero cubic and full Schur cube.  Signed Gale duality
+then gives the Gorenstein conclusions.  Appendix
+F maps each finite input to its primary check and independent replay.
+
+\begin{theorem}[Quadratic recovery and cubic orientation]
+\label{thm:factorization-recovery}
+Let the $A_3$, $B_3$, and $H_3$ matching configurations be the finite
+matching orbits defined in Section~\ref{sec:rank-three}.  Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item matching products scaled as in Section~\ref{sec:matching-products}
+have equal restriction to the conic, and their conic-ideal quotients have
+difference ranks $3$, $6$, and $10$;
+\item among all odd prime powers \(q\), the \(B_3/\F_7\) and
+\(H_3/\F_{11}\) configurations are the only full
+\(\operatorname{PGL}_2(q)\)-orbits whose strength-two trade space is
+one-dimensional and has two fibers, each a one-factorization of
+\(\mathbb P^1(\F_q)\);
+\item in the $B_3$ and $H_3$ cases, the two factorization sheets are,
+up to interchange, the unique complementary halves with equal first and
+second tensor moments;
+\item in those two cases, the signed moments vanish through degree two,
+while a nonzero degree-three tensor transforms by the character that
+exchanges the sheets;
+\item the homogenized \(B_3\) and \(H_3\) configurations are
+self-associated with Gorenstein coordinate rings; the signed cubic is
+the Macaulay inverse system of their Artinian reductions.
+\end{enumerate}
+\end{theorem}
+
+Appendix~\ref{sec:modular-depth} gives a modular interpretation of the
+\(H_3\) affine-origin obstruction and its homogeneous extension.
+Sections~\ref{sec:matching-products}--\ref{sec:balanced} prove the
+quotient, rank, and quadratic/cubic recovery results; Appendices A--E
+record \(H_3\) refinements, and Appendix F documents verification.
+
+\section{Conic matching products}
+\label{sec:matching-products}
+
+Write the standard conic as
+\[
+ \cC=V(Q),\qquad Q=XZ-Y^2,
+\]
+and parametrize it by $\nu(s:t)=(s^2:st:t^2)$.  For points
+$a=(a_0:a_1)$ and $b=(b_0:b_1)$ of $\mathbb P^1$, put
+$[a,b]=a_0b_1-a_1b_0$.  We scale the secant $L_{ab}$ through
+$\nu(a)$ and $\nu(b)$ by the condition
+\[
+ L_{ab}(\nu(s:t))=[a,(s:t)]\,[b,(s:t)].
+\]
+
+Let $\Omega$ be a set of $2m$ distinct marked points of $\mathbb P^1$,
+with fixed vector representatives.  For a perfect matching $M$ of
+$\Omega$, define its matching product
+\[
+ P_M=\prod_{\{a,b\}\in M}L_{ab}.
+\]
+The vector representatives are part of the marked-conic data.  Their
+role is to make the products comparable before passing to projective
+equivalence.
+
+\begin{proposition}[The matching-secant quotient]
+\label{prop:matching-secant-quotient}
+For every $m\ge2$ and every two perfect matchings $M,N$ of $\Omega$,
+\[
+ P_M|_{\cC}=P_N|_{\cC},\qquad P_M-P_N\in(Q).
+\]
+Consequently, after choosing a reference matching $M_0$,
+\[
+ \Phi_{M_0}(M)=\frac{P_M-P_{M_0}}{Q}
+       \in H^0(\mathbb P^2,\mathcal O(m-2))
+                                                        \tag{2.1}
+\]
+is an affine configuration.  Changing the reference matching translates
+this configuration.  If $g\in\mathrm{GL}_2$ preserves $\Omega$,
+$\rho(g)$ is its action on binary quadratics, and representatives are
+transported by $g$, then
+\[
+ \Phi_{gM_0}(gM)\circ\rho(g)
+   =\det(g)^{\,2m-2}\Phi_{M_0}(M).                       \tag{2.2}
+\]
+Thus the difference space, its rank, and its affine moment conditions do
+not depend on $M_0$ and are equivariant under the endpoint stabilizer.
+\end{proposition}
+
+\begin{proof}
+For $x\in\mathbb P^1$,
+\[
+ P_M(\nu(x))=\prod_{a\in\Omega}[a,x],
+\]
+which does not depend on the pairing.  The kernel of the Veronese
+pullback
+\[
+ k[X,Y,Z]\longrightarrow k[s,t],\qquad
+ (X,Y,Z)\longmapsto(s^2,st,t^2)
+\]
+is the principal ideal $(Q)$, so $Q$ divides every difference.
+Changing the reference follows by subtraction.  Finally,
+$L_{ga,gb}\circ\rho(g)=\det(g)^2L_{ab}$ and
+$Q\circ\rho(g)=\det(g)^2Q$, which gives (2.2).
+\end{proof}
+
+\subsection{The four-endpoint switch}
+\label{sec:switches}
+
+For four distinct endpoints, the Pl\"ucker relation gives the local
+switch identity
+\[
+ L_{ab}L_{cd}-L_{ac}L_{bd}
+   =[a,d][b,c]\,Q.                                      \tag{2.3}
+\]
+Multiplying (2.3) by the secant factors common to two matchings proves
+divisibility for a single switch.  Any two perfect matchings are joined
+by a sequence of such switches: if $M$ and $N$ differ at $a$, write
+$\{a,b\}\in M$ and $\{a,c\}\in N$; switching the two $M$-edges through
+$b$ and $c$ creates $\{a,c\}$ and reduces the symmetric difference.
+This also gives an elementary proof of the divisibility clause in
+Proposition~\ref{prop:matching-secant-quotient}.
+
+The switch calculation and the global pullback proof play different
+roles.  The pullback proves the quotient for arbitrary matchings at once.
+The switch identity records how local changes of factorization move in
+the quotient space.  A selected Coxeter orbit need not contain every
+perfect matching or every intermediate switch.
+
+\section{The rank-three configurations}
+\label{sec:rank-three}
+
+We now select three finite matching orbits.  This selection is discrete
+input: Proposition~\ref{prop:matching-secant-quotient} applies to every
+matching, but it does not distinguish the Coxeter orbits.
+Here and below, ``rank three'' refers to Coxeter rank.  It does not
+refer to the dimensions of the conic-ideal quotient spaces, which are
+\(3,6,10\).
+
+For $q\in\{5,7,11\}$, index
+\[
+ \mathbb P^1(\F_q)=\{0,1,\ldots,q-1,\infty\},
+\]
+where $a$ denotes $(1:a)$ and $\infty$ denotes $(0:1)$.  Let
+$G_q=\operatorname{PGL}_2(q)$ act in the usual way.  The three base
+matchings are
+\[
+\begin{array}{c@{\qquad}c@{\qquad}l}
+T&q&M_T\\ \hline
+A_3&5&
+ \{0,\infty\},\{1,4\},\{2,3\},\\
+B_3&7&
+ \{0,2\},\{1,4\},\{3,\infty\},\{5,6\},\\
+H_3&11&
+ \{0,1\},\{2,5\},\{3,7\},\{4,9\},\{6,8\},
+ \{10,\infty\}.
+\end{array}                                               \tag{3.1}
+\]
+Define the \emph{rank-three matching configuration}
+\[
+ \Omega_T=G_q\cdot M_T.
+\]
+The stabilizers of the three displayed matchings are respectively
+$S_4,S_4,A_5$, and hence
+\[
+ |\Omega_{A_3}|=5,\qquad |\Omega_{B_3}|=14,\qquad
+ |\Omega_{H_3}|=22.                                      \tag{3.2}
+\]
+These marker spaces and their stabilizers are classical.  In particular,
+Edge and Dye identify the exceptional finite conic configurations and
+substantial parts of their incidence geometry
+\cite{Edge1956,Dye1991}.  We use the Coxeter names for the corresponding
+tetrahedral, octahedral, and icosahedral data; neither the orbit counts in
+(3.2) nor the ambiguity of an unmarked conic is asserted here as new.
+
+\begin{theorem}[Completeness under the one-factorization hypothesis]
+\label{thm:balanced-orbit-completeness}
+Let \(q\) be an odd prime power, put
+\[
+ G=\operatorname{PGL}_2(q),\qquad G^+=\operatorname{PSL}_2(q),
+\]
+and let \(\Omega\) be a \(G\)-orbit of perfect matchings of
+\(\mathbb P^1(\F_q)\).  Form its conic-ideal quotient configuration and
+let \(L\subseteq\F_q^\Omega\) be its affine evaluation space.  Put
+\[
+ L^{\circ2}=\operatorname{span}\{fg:f,g\in L\},
+\]
+with pointwise multiplication, and take its annihilator under the
+standard coordinate pairing on \(\F_q^\Omega\).  Suppose
+\((L^{\circ2})^\perp\) is one-dimensional, its nonzero vectors have
+exactly two fibers, and each fiber is a one-factorization: its matchings
+partition the edges of the complete graph on
+\(\mathbb P^1(\F_q)\).  Then
+\[
+ (q,\Omega)=(7,\Omega_{B_3})
+ \quad\text{or}\quad
+ (q,\Omega)=(11,\Omega_{H_3}).
+                                                        \tag{3.2a}
+\]
+Conversely, both displayed orbits satisfy these intrinsic hypotheses.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:matching-secant-quotient} makes \(L\), its square,
+and the line
+\[
+ R=(L^{\circ2})^\perp
+\]
+\(G\)-stable.  Choose \(0\ne\tau\in R\).  Its zero set is
+\(G\)-invariant, so transitivity gives \(\tau\) full support.  The two
+level sets of \(\tau\) depend only on \(R\), hence \(G\) permutes them.
+This action is nontrivial because \(G\) is transitive on \(\Omega\).
+
+For \(q>3\), the commutator subgroup of \(G\) is \(G^+\), and \(G/G^+\)
+has order two.  The kernel of the action on the two levels is therefore
+\(G^+\).  The stabilizer of a point fixes its level and so lies in
+\(G^+\); consequently the two levels are exactly the two \(G^+\)-orbits.
+An outer element acts on \(R\) by a scalar and exchanges the two nonzero
+values of \(\tau\), so those values are opposites.
+
+Each one-factorization of the complete graph on \(q+1\) vertices has
+\[
+ \frac{\binom{q+1}{2}}{(q+1)/2}=q
+\]
+perfect matchings.  Thus the intrinsic levels have size \(q\), and
+\(|\Omega|=2q\).  When \(q=3\), there are only three perfect matchings
+altogether, so two disjoint one-factorizations cannot occur.
+
+Now fix \(M\in\Omega\) and let \(K=\operatorname{Stab}_G(M)\).
+Orbit--stabilizer and the derived two-sheet conclusion give
+\[
+ |K|=\frac{q^2-1}{2},\qquad K\leq G^+,\qquad [G^+:K]=q.    \tag{3.2b}
+\]
+
+Assume \(q\geq5\), and place \(K\) in a maximal subgroup of \(G^+\).
+Dickson's maximal-subgroup theorem, in the form recorded by Giudici
+\cite[Theorem~2.2]{Giudici2007}, leaves Borel, dihedral, subfield, and
+exceptional \(A_4,S_4,A_5\) subgroups.  The first two have order smaller
+than \((q^2-1)/2\).  A proper subfield subgroup is no larger than
+\(\operatorname{PGL}_2(r)\), where \(q=r^e\) and \(e\geq2\), and
+\[
+ r(r^2-1)<\frac{r^{2e}-1}{2}.
+\]
+Thus it too is too small.  An exceptional maximal subgroup has order at
+most \(60\), so (3.2b) leaves \(q=5,7,9,11\).  For \(q=9\), the required
+order \(40\) divides none of \(12,24,60\).  In the other three cases,
+order and divisibility force
+\[
+ (q,K)=(5,A_4),\ (7,S_4),\ (11,A_5).                    \tag{3.2c}
+\]
+
+It remains to ask which of these subgroup actions preserves a matching.
+This is a block-system question, not a matching census.  For \(q=5\),
+the \(A_4\)-action on the six endpoints is transitive with point
+stabilizer \(C_2\).  Its normal Klein four subgroup gives the unique
+two-point block system.  The normalizer of \(A_4\) in
+\(\operatorname{PGL}_2(5)\) is \(S_4\); uniqueness makes this whole
+normalizer preserve the matching.  Its full orbit therefore has five
+points, namely \(\Omega_{A_3}\), rather than ten.  In particular, the
+other ten matchings cannot form a balanced \(5+5\) orbit.
+
+For \(q=7\), the \(S_4\)-action on eight endpoints has point stabilizer
+\(C_3\).  A two-point block stabilizer must have order six, and the
+unique possibility containing that \(C_3\) is its normalizer \(S_3\).
+Hence the invariant matching is unique.  Similarly, for \(q=11\), the
+\(A_5\)-action on twelve endpoints has point stabilizer \(C_5\); its
+unique possible two-point block stabilizer is
+\(N_{A_5}(C_5)=D_{10}\).  The invariant matching is again unique.
+In each case the two \(G^+\)-classes of the exceptional subgroup are
+fused by \(G\), and the subgroup has no outer normalizer
+\cite{Giudici2007}.  Its full matching stabilizer is therefore exactly
+\(S_4\) or \(A_5\), so the orbit has size \(2q\) and splits into the two
+claimed \(G^+\)-orbits.  The unique block systems are precisely the
+matchings displayed in (3.1), up to \(G\)-conjugacy.
+
+Conversely, \(q=7,11\) are both \(3\pmod4\), so \(G^+\) is transitive on
+unordered pairs of endpoints.  Each \(q\)-matching sheet therefore covers
+every edge equally often; its total of \(q(q+1)/2\) edge occurrences
+equals the number of edges, so it is a one-factorization.
+Propositions~\ref{prop:radical-hadamard} and
+\ref{prop:modular-sheet-mechanism} identify
+\((L^{\circ2})^\perp\) with the sheet-sign line.  Hence both displayed
+orbits satisfy the intrinsic hypotheses.
+\end{proof}
+
+Fix $M_T$ as reference and apply (2.1) to every member of $\Omega_T$.
+Write $R_d=\F_q[X,Y,Z]_d$ and
+\[
+ \Delta_Q=4\partial_X\partial_Z-\partial_Y^2,\qquad
+ \mathcal H_d=\ker(\Delta_Q:R_d\longrightarrow R_{d-2}).
+                                                               \tag{3.3}
+\]
+The operator $\Delta_Q$ is the Laplacian attached to the dual quadratic
+form.  In the degrees used below, $\mathcal H_d$ is the top harmonic
+summand, while powers of $Q$ give radial summands.
+
+\begin{theorem}[The \(3,6,10\) quotient ranks]
+\label{thm:rank-three-quotients}
+For the matching configurations in (3.1), let
+\[
+ W_T=\operatorname{span}_{\F_q}
+ \{\Phi_{M_T}(M):M\in\Omega_T\}.
+\]
+Then
+\[
+\begin{array}{c@{\quad}c@{\quad}c@{\quad}c}
+T&\deg\Phi& W_T&\dim W_T\\ \hline
+A_3&1&R_1=\mathcal H_1&3,\\
+B_3&2&R_2=\mathcal H_2\oplus\F_7Q&6,\\
+H_3&4&\mathcal H_4\oplus\F_{11}Q^2&10.
+\end{array}                                               \tag{3.4}
+\]
+If \(h_T=4,6,10\) is the Coxeter number and
+\(d=h_T/2-1\), the three rows have the uniform form
+\[
+ W_T=
+ \begin{cases}
+ \mathcal H_d,&d\ \text{odd},\\
+ \mathcal H_d\oplus\F_qQ^{d/2},&d\ \text{even},
+ \end{cases}
+ \qquad
+ \dim W_T=h_T-1+\mathbf 1_{\{d\ {\rm even}\}}.
+\]
+In particular, the first two configurations fill the complete quotient
+form space.  The \(H_3\) configuration spans a canonical ten-dimensional
+subspace of the fifteen-dimensional space \(R_4\).
+\end{theorem}
+
+\noindent\emph{Proof mode.}
+The quotient construction and all three spanning assertions are proved
+symbolically.  Irreducibility forces the \(A_3\) image and the top \(B_3\)
+summand; one displayed outer-sheet quotient supplies the \(B_3\) radial
+line.  For \(H_3\), a Sylow-normalizer cohomology argument excludes the
+middle Fischer layer and forces the top harmonic summand; one displayed
+outer-sheet quotient supplies the remaining radial line.  A separate
+implementation reconstructs the three full quotient matrices and the two
+smaller radial witnesses from the data in (3.1).
+
+\begin{proof}
+A matching in (3.1) has
+$m=3,4,6$ edges, respectively, so
+Proposition~\ref{prop:matching-secant-quotient} places its quotient in
+$R_{m-2}$, of degrees $1,2,4$.  Direct differentiation gives
+\[
+ \dim\mathcal H_1=3,\qquad
+ \dim\mathcal H_2=5,\qquad
+ \dim\mathcal H_4=9.
+\]
+The radial vector \(Q\in R_2\) is not harmonic in characteristic \(7\).
+
+We first prove the \(A_3\) and \(B_3\) rows without quotient matrices.
+For \(q=5,7\), put
+\[
+ G=\operatorname{PGL}_2(q),\qquad
+ G^+=\operatorname{PSL}_2(q),\qquad
+ \chi(g)=\det(g)^{(q-1)/2}.
+\]
+The Dickson form \(s^qt-st^q\), which is the common conic restriction
+of the matching products, has contragredient weight \(\det^{-1}\).
+The Clebsch identification and Fischer decomposition therefore give
+\[
+\begin{array}{c@{\qquad}c}
+q=5&\widetilde R_1=R_1\otimes\det^{-1}=M_2,\\
+q=7&\widetilde R_2=R_2\otimes\det^{-1}=M_4\oplus M_0,
+\end{array}                                                \tag{3.4a}
+\]
+where, uniformly,
+\[
+ M_r=\operatorname{Sym}^r(V^\vee)\otimes
+       \det^{r/2}\otimes\chi,\qquad M_0=\chi.
+\]
+The scalar action is trivial, so these are \(G\)-modules.  On \(G^+\),
+\(M_2\) and \(M_4\) are the absolutely irreducible symmetric powers of
+highest weights \(2<5\) and \(4<7\), respectively
+\cite[Fact~3.1]{BraunNebe2025}.
+
+For either type let
+\[
+ c(g)=\Phi_{M_T}(gM_T).
+\]
+It is an affine cocycle, \(c(gh)=g c(h)+c(g)\), and its value span is
+\(G\)-stable because
+\[
+ b\,c(g)=c(bg)-c(b).                                      \tag{3.4b}
+\]
+Distinct matchings have distinct products: unique factorization recovers
+the normalized secant factors.  Hence every nonbase orbit point gives a
+nonzero cocycle value.  In type \(A_3\), irreducibility of \(M_2\) now
+forces the value span to be all of \(R_1\).
+
+In type \(B_3\), project the cocycle to \(M_0=\chi\).  Its restriction
+to \(G^+\) is a homomorphism from the simple group
+\(\operatorname{PSL}_2(7)\) to the additive group of \(\F_7\), and is
+therefore zero.  A nonbase point on the \(G^+\)-sheet consequently gives
+a nonzero vector in \(M_4\); irreducibility and (3.4b) force the whole
+five-space \(M_4=\mathcal H_2\).
+
+It remains to supply the radial line.  The nonsquare-determinant matrix
+\[
+ u=\begin{pmatrix}0&1\\1&2\end{pmatrix}
+\]
+sends the base matching to
+\[
+ M_*=\{\{0,2\},\{1,5\},\{3,4\},\{6,\infty\}\}.
+\]
+Using \(L_{ab}=abX-(a+b)Y+Z\) for finite \(a,b\), direct cancellation
+in the two products gives the two-line quotient
+\[
+ \Phi_{M_{B_3}}(M_*)=(Z-2Y)(3Z+Y)
+                    =3L_{02}^2.                            \tag{3.4c}
+\]
+Thus the outer quotient is the square of the secant common to the two
+matchings, up to a nonzero scalar.  The dual quadratic norm of a secant
+line is nonzero, whereas it vanishes for a tangent line.  Equivalently,
+in the displayed normalization,
+\[
+ \Delta_Q(3L_{02}^2)=4\ne0\quad\text{in }\F_7.              \tag{3.4d}
+\]
+Since \(\Delta_Q\) kills \(M_4=\mathcal H_2\), this outer-sheet value
+has nonzero \(M_0=\F_7Q\)-projection.  The span already contains \(M_4\),
+so it contains \(M_0\) as well.  Hence \(W_{B_3}=R_2\), proving the
+first two rows of (3.4).
+
+We prove the \(H_3\) row equivariantly.  Put
+\(G=\operatorname{PGL}_2(11)\),
+\(G^+=\operatorname{PSL}_2(11)\), and let
+\(\chi(g)=\det(g)^5\) be the square-class character.  On the conic, the
+common restriction of the matching products is the Dickson form
+\(s^{11}t-st^{11}\), of contragredient weight \(\det^{-1}\).
+Let \(V=\F_{11}^2\), with binary forms carrying the contragredient
+\(\operatorname{GL}_2(11)\)-action.  The equivariant Fischer decomposition
+obtained from the Clebsch identification
+\(\operatorname{Sym}^2V\simeq\F_{11}^3\), together with the Dickson
+weight in the quotient transformation (2.2), gives the linearized module
+\[
+ \widetilde R_4=R_4\otimes\det^{-1}
+  =M_8\oplus M_4\oplus M_0,                       \tag{3.5}
+\]
+Explicitly, \(g\in\operatorname{GL}_2(11)\) acts on the first expression
+by
+\[
+ g\cdot f=\det(g)^{-1}\bigl(f\circ\rho(g)^{-1}\bigr).
+\]
+The three summands are
+\[
+\begin{split}
+ M_8&=\mathcal H_4\otimes\det^{-1}
+      \simeq\operatorname{Sym}^8(V^\vee)\otimes\det^{-1},\\
+ M_4&=Q\mathcal H_2\otimes\det^{-1}
+      \simeq\operatorname{Sym}^4(V^\vee)\otimes\det^{-3},\\
+ M_0&=\F_{11}Q^2\otimes\det^{-1}
+      \simeq\det^{-5}=\chi .
+\end{split}                                         \tag{3.6}
+\]
+Equivalently, all three summands have the uniform form
+\[
+ M_r=\operatorname{Sym}^r(V^\vee)\otimes
+       \det^{r/2}\otimes\chi,\qquad r=8,4,0.
+\]
+A scalar \(\lambda I\) acts here as
+\(\lambda^{-r}\lambda^r(\lambda^2)^5=1\), so these modules and their
+direct sum descend from \(\operatorname{GL}_2(11)\) to \(G\).  This is
+the \(G\)-action used below.  The determinant twist changes only the
+linearization, not the underlying Fischer subspaces
+\(\mathcal H_4,Q\mathcal H_2,\F_{11}Q^2\) of \(R_4\).
+
+We need two elementary cohomology facts.  Let
+\(U=\langle u\rangle\) be the upper-unipotent Sylow \(11\)-subgroup
+and let \(a\) generate the diagonal torus of order \(10\).
+Since \(r<10\), the cyclic norm
+\(1+u+\cdots+u^{10}=(u-1)^{10}\) vanishes on \(M_r\), while
+\((u-1)M_r\) has codimension one.  Thus \(H^1(U,M_r)\) is represented by
+the class of \(x^r\).  Diagonal conjugation acts on that class by
+\[
+ a^{\,4-r/2}.                                      \tag{3.7}
+\]
+Restriction from \(G\) to \(U\) is injective because
+\([G:U]=120\) is invertible in \(\F_{11}\), and its image is fixed by the
+Sylow normalizer.  Equation (3.7) therefore gives
+\[
+ H^1(G,M_4)=H^1(G,M_0)=0,\qquad
+ \dim H^1(G,M_8)\le1.                              \tag{3.8}
+\]
+The stabilizer \(H=A_5\) of \(M_{H_3}\) lies in \(G^+\).
+The restrictions of \(M_8,M_4,M_0\) to \(H\) are respectively
+\(4\oplus5,5,1\), so
+\[
+ M_8^H=M_4^H=0,\qquad \dim M_0^H=1.                \tag{3.9}
+\]
+Equivalently, average the characters
+\((9,1,0,-1,-1)\), \((5,1,-1,0,0)\), and
+\((1,1,1,1,1)\) over the \(A_5\) class sizes
+\((1,15,20,12,12)\).
+
+Let \(c(g)=\Phi_{M_{H_3}}(gM_{H_3})\).  The common-restriction identity
+gives
+\[
+ c(gh)=g c(h)+c(g),
+\]
+and \(c\) vanishes on \(H\).  Project \(c\) through (3.5).  By (3.8), its
+\(M_4\)-component is a coboundary; its translating vector lies in
+\(M_4^H=0\), so that component vanishes.  This proves, without quotient
+coordinates,
+\[
+ \Delta_Q\Phi_{M_{H_3}}(M)\in\F_{11}Q
+ \quad\text{for every }M\in\Omega_{H_3}.            \tag{3.10}
+\]
+Likewise the \(M_0\)-component is a coboundary and hence vanishes on
+\(G^+\).  Choose any other matching in the eleven-element \(G^+\)-orbit
+of \(M_{H_3}\).  Its quotient is nonzero: equality of the two secant
+products would identify their irreducible line factors and hence the
+matchings.  Its \(M_4\)- and \(M_0\)-components vanish, so it gives a
+nonzero vector in \(M_8\).  The degree-eight restricted
+\(\operatorname{SL}_2(\F_{11})\)-module is irreducible
+\cite[Fact~3.1]{BraunNebe2025}.  Moreover the
+span of the cocycle values is \(G\)-stable, since
+\[
+ b\,c(g)=c(bg)-c(b)\qquad(b,g\in G).
+\]
+Therefore the quotient span contains all of \(M_8\).
+
+It remains only to see the radial line.  With \(\infty\) indexed by \(11\),
+take
+\[
+ M_-=\{\{0,1\},\{2,\infty\},\{3,8\},\{4,6\},
+          \{5,9\},\{7,10\}\}.
+\]
+The nonsquare-determinant projectivity represented on \(V\) by
+\[
+ \begin{pmatrix}0&1\\1&1\end{pmatrix}
+\]
+sends \(M_{H_3}\) to \(M_-\); hence \(M_-\) belongs to the outer sheet
+of \(\Omega_{H_3}\).  The primary certificate and independent replay
+also reconstruct this orbit membership.  Exact division and
+differentiation give
+\[
+ \Delta_Q^2\Phi_{M_{H_3}}(M_-)=10
+   =\Delta_Q^2(Q^2)\ne0.                            \tag{3.11}
+\]
+The independent replay reconstructs this single scalar from the secant
+formula.  Since \(\Delta_Q^2\) kills \(M_8\oplus M_4\), (3.11) supplies
+the \(M_0\)-projection.  The span already contains \(M_8\), so it also
+contains \(M_0\).  Hence
+\(W_{H_3}=\mathcal H_4\oplus\F_{11}Q^2\), of dimension \(10\).
+Since \(\dim R_4=15\), this equality is proper.
+\end{proof}
+
+\begin{corollary}[The base-choice class and its homogeneous extension]
+\label{cor:h3-affine-origin}
+Let \(c_8:G\to M_8\) be the top-harmonic projection of the base-choice
+cocycle \(c\).  Then
+\[
+ H^1(G,M_8)=\F_{11}[c_8].                              \tag{3.11a}
+\]
+In particular, the affine \(H_3\) quotient configuration has no
+\(G\)-equivariant origin: no translation makes its affine action linear.
+Equivalently, the homogeneous module
+\[
+ E_{c_8}=M_8\oplus\F_{11},\qquad
+ g\cdot(v,t)=(gv+t\,c_8(g),t),                         \tag{3.11b}
+\]
+is nonsplit.  Up to equivalence and nonzero rescaling of the quotient
+coordinate, it is the unique nonsplit extension of the trivial
+\(G\)-module by \(M_8\).
+\end{corollary}
+
+\begin{proof}
+Equation (3.8) gives \(\dim H^1(G,M_8)\leq1\).  On the base sheet the
+\(M_0\)-component vanishes, and the \(M_4\)-component vanishes by (3.9);
+the nonzero same-sheet quotient used in the proof above is therefore a
+value of \(c_8\).  If \(c_8(g)=gv-v\), its vanishing on
+\(H=\operatorname{Stab}_G(M_{H_3})\) would put \(v\) in \(M_8^H=0\),
+forcing \(c_8=0\), a contradiction.  Thus \([c_8]\ne0\), proving
+(3.11a).
+
+Changing the reference quotient translates the affine configuration
+and changes \(c_8\) by a coboundary.  Hence a \(G\)-equivariant origin
+would kill \([c_8]\), which is impossible.  Finally the standard
+identification
+\(\operatorname{Ext}^1_{\F_{11}G}(\F_{11},M_8)\simeq H^1(G,M_8)\)
+identifies (3.11b) with \([c_8]\); the one-dimensionality just proved
+gives the last assertion.
+\end{proof}
+
+\begin{corollary}[The exact \(H_3\) loss]
+\label{cor:h3-middle-layer}
+Over \(\F_{11}\), the quartic form space has the Fischer decomposition
+\[
+ R_4=\mathcal H_4\oplus Q\mathcal H_2\oplus\F_{11}Q^2.
+                                                               \tag{3.12}
+\]
+Consequently,
+\[
+ R_4=W_{H_3}\oplus Q\mathcal H_2,\qquad
+ R_4/W_{H_3}\simeq Q\mathcal H_2.                              \tag{3.13}
+\]
+Equivalently,
+\[
+ W_{H_3}
+ =\{f\in R_4:\Delta_Qf\in\F_{11}Q\}.                           \tag{3.14}
+\]
+Thus the \(H_3\) quotient configuration retains the top harmonic
+nine-space and the deepest radial line, and omits precisely the
+five-dimensional middle radial layer.
+\end{corollary}
+
+\begin{proof}
+For a homogeneous form \(f\) of degree \(r\), direct differentiation
+gives
+\[
+ \Delta_Q(Qf)=(4r+6)f+Q\Delta_Qf.                              \tag{3.15}
+\]
+Hence \(\Delta_Q(Qh)=3h\) for \(h\in\mathcal H_2\), while
+\(\Delta_Q(Q^2)=9Q\) over \(\F_{11}\).  Applying
+\(\Delta_Q^2\) and then \(\Delta_Q\) shows that the three summands in
+(3.12) meet trivially.  Their dimensions are \(9,5,1\), so they exhaust
+the fifteen-dimensional space \(R_4\).  Theorem
+\ref{thm:rank-three-quotients} then gives (3.13).  If
+\(f=h_4+Qh_2+cQ^2\) is its decomposition, then
+\[
+ \Delta_Qf=3h_2+9cQ.
+\]
+The quadratic decomposition \(R_2=\mathcal H_2\oplus\F_{11}Q\)
+therefore gives (3.14).
+\end{proof}
+
+The rank proof has two distinct boundaries.  The common restriction and
+quotient are general consequences of the conic ideal, and (3.3) describes
+the intrinsic target subspaces.  For \(A_3\), irreducibility alone forces
+the image.  For \(B_3\), irreducibility forces the top summand and the
+two-line calculation (3.4c)--(3.4d) detects the radial line.  For \(H_3\),
+(3.7)--(3.10) prove the containment and top-summand nonvanishing
+equivariantly; only the single radial scalar (3.11) remains an exact
+coordinate witness.  The primary certificate still enumerates every orbit
+and recovers the ranks, while an independent replay reconstructs both that
+calculation and the smaller witnesses from (3.1).
+
+This proof is uniform at the level of its mechanism---an affine connecting
+cocycle, its Sylow-normalizer weights, stabilizer fixed spaces, and
+irreducible summands---but it still uses the \(H_3\)-specific
+\(A_5<\operatorname{PGL}_2(11)\) module data and separate geometric
+nonvanishing witnesses for the two radial lines.  A theorem over all good
+reductions would additionally require
+integral models and an analysis of the characteristics in which the
+harmonic decomposition, orbit structure, or marker algebra degenerates.
+
+Corollary~\ref{cor:h3-middle-layer} identifies the linear information
+lost by the \(H_3\) orbit, but linear span does not recover the two
+factorization sheets inside the finite configuration.  Their recovery
+begins one categorical level higher, with products of affine evaluation
+functions.
+
+\section{Balanced sheets and cubic orientation}
+\label{sec:balanced}
+
+For \(T=B_3,H_3\), put \(q=7,11\), respectively.  The subgroup
+\[
+ G^+=\operatorname{PSL}_2(q)
+ \subset G=\operatorname{PGL}_2(q)
+\]
+splits \(\Omega_T\) into two orbits
+\(\Omega_+\sqcup\Omega_-\), each of size \(q\); an element of the outer
+coset exchanges them.  These are the two one-factorization sheets.  The
+\(A_3\) orbit does not split: its \(S_4\) stabilizer cannot lie in
+\(\operatorname{PSL}_2(5)\simeq A_5\), already by order.
+
+Write \(x_M=\Phi_{M_T}(M)\in W_T\).  Let \(L\subseteq\F_q^{\Omega_T}\)
+be the evaluation space of affine-linear functions on the finite
+configuration \(\{x_M\}\).  Since the points affinely span \(W_T\),
+\[
+ \dim L=1+\dim W_T=q.
+\]
+For subspaces of functions, write
+\[
+ L^{\circ2}=\operatorname{span}\{fg:f,g\in L\},
+\]
+where multiplication is pointwise.
+The common second-moment form in the proposition below is
+\[
+ B(\lambda,\mu)=\sum_{M\in\Omega_+}\lambda(x_M)\mu(x_M)
+               =\sum_{M\in\Omega_-}\lambda(x_M)\mu(x_M)
+\]
+on \(W_T^\vee\).  A \emph{field-valued strength-two trade} is a
+weight \(\tau\in k^\Omega\) satisfying, for all \(f,g\in L\),
+\[
+ \sum_{M\in\Omega}\tau(M)f(M)g(M)=0.
+\]
+
+\paragraph{The \(B_3\) model.}
+Here the quotient configuration consists of fourteen points spanning
+the six-space \(W_{B_3}\), split into two seven-point sheets.  Its
+affine evaluation space \(L\) has dimension seven.  Restriction to
+either sheet has rank six, while the common second-moment form has rank
+five and a radical functional that takes distinct constant values on
+the two sheets.  It follows that \(L^{\circ2}\) is the
+thirteen-dimensional hyperplane of functions with equal sheet sums;
+its one-dimensional annihilator is the sheet sign.  Thus the quadratic
+algebra recovers the \(7+7\) partition without a search through
+partitions.  The first nonzero signed moment is cubic, so
+\(L^{\circ3}=\F_7^{14}\), and the homogenized points have
+\(h\)-vector \((1,6,6,1)\).  The next proposition isolates the
+quadratic step in a form that applies to both balanced configurations.
+
+\begin{proposition}[Radical--Hadamard recovery]
+\label{prop:radical-hadamard}
+Let \(k\) be a field and
+\(\Omega=\Omega_+\sqcup\Omega_-\), with both sheets of size \(q=0\)
+in \(k\).  Suppose an affine evaluation space
+\(L\subseteq k^\Omega\) has the following properties:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item each sheet has zero first moment, and the two sheets have equal
+second moments;
+\item \(\dim L=q\), and restriction from \(L\) onto the zero-sum
+hyperplane of either sheet has rank \(q-1\);
+\item the second-moment form on linear functionals has rank \(q-2\)
+and a one-dimensional radical;
+\item a nonzero radical functional is constant on each sheet, with
+different constants on the two sheets.
+\end{enumerate}
+Then
+\[
+ L^{\circ2}
+ =\left\{(u_+,u_-):
+   \sum_{\Omega_+}u_+=\sum_{\Omega_-}u_-\right\},              \tag{4.1}
+\]
+and
+\[
+ (L^{\circ2})^\perp
+ =k(\mathbf1_{\Omega_+}-\mathbf1_{\Omega_-}).                 \tag{4.2}
+\]
+Consequently every field-valued strength-two trade is a scalar multiple
+of the sheet sign.
+\end{proposition}
+
+\begin{proof}
+Let \(e_+\) and \(e_-\) be the two sheet indicators.  The radical
+functional evaluates as \(a_+e_++a_-e_-\) with \(a_+\ne a_-\).
+Together with \(1=e_++e_-\in L\), it therefore yields
+\(e_+,e_-\in L\).
+
+Let \(H_\pm\) be the zero-sum hyperplane on \(\Omega_\pm\).
+The first-moment hypothesis and \(q=0\) put each restriction of \(L\)
+inside \(H_\pm\); the rank hypothesis makes both restrictions
+surjective.  Multiplication by \(e_+\) and \(e_-\) now gives
+\[
+ (H_+\oplus0)+(0\oplus H_-)\subseteq L^{\circ2}.              \tag{4.3}
+\]
+This subspace has dimension \(2q-2\).
+
+For \(f,g\in L\), the difference between the two sheet sums of \(fg\)
+expands into constant, first-moment, and second-moment terms.  The
+hypotheses make all three differences zero, so \(L^{\circ2}\) lies in
+the hyperplane on the right of (4.1).  Finally choose restrictions
+\(a,b\in H_+\) with nonzero standard pairing and lift them to
+\(f,g\in L\).  Equality of the second moments gives the same nonzero
+pairing on \(\Omega_-\).  Thus \(fg\) has equal nonzero sheet sums and
+does not lie in (4.3).  We have found \(2q-1\) independent directions
+in the \(2q-1\)-dimensional hyperplane, proving (4.1).  Its annihilator
+under the standard coordinate pairing is the line in (4.2).
+\end{proof}
+
+\begin{proposition}[The modular-permutation mechanism]
+\label{prop:modular-sheet-mechanism}
+For \(T=B_3,H_3\), the affine quotient configuration satisfies all four
+hypotheses of Proposition~\ref{prop:radical-hadamard}.  More precisely,
+write
+\[
+ W_T=U_T\oplus\F_q r,\qquad
+ U_{B_3}=\mathcal H_2,\quad U_{H_3}=\mathcal H_4.
+\]
+On either \(q\)-point sheet, affine evaluation has image the zero-sum
+hyperplane and rank \(q-1\).  The common second-moment form has rank
+\(q-2\), with radical the radial functional \(r^\vee\); that functional
+is constant on each sheet and its two constants are distinct.
+\end{proposition}
+
+\begin{proof}
+As a \(G^+\)-module, \(U_T\) is the irreducible module
+\(M_{q-3}\) of dimension \(q-2\).  Project the affine quotient points to
+\(U_T\), writing the resulting sheet as \(\{y_\omega\}\).
+The cocycle argument in Section~\ref{sec:rank-three} says that the
+differences \(y_\omega-y_{\omega'}\) span \(U_T\).
+Moreover \(\sum_\omega y_\omega\) is \(G^+\)-fixed: translating the
+sheet adds \(q\) times the cocycle value, which vanishes in
+characteristic \(q\).  Since \(U_T^{G^+}=0\),
+\[
+ \sum_\omega y_\omega=0.
+\]
+
+Let \(P=\F_q^{\Omega_+}\), and put
+\[
+ P_0=\left\{(a_\omega):\sum_\omega a_\omega=0\right\},
+ \qquad S=\F_q\mathbf1.
+\]
+Here \(S\subset P_0\), the defining-characteristic feature that drives
+the argument.  The map
+\[
+ P_0\longrightarrow U_T,\qquad
+ (a_\omega)\longmapsto\sum_\omega a_\omega y_\omega
+\]
+is onto because the differences span, and the preceding moment identity
+kills \(S\).  Both \(P_0/S\) and \(U_T\) have dimension \(q-2\), so it
+induces an isomorphism
+\[
+ P_0/S\simeq U_T.
+\]
+The standard dot product on \(P_0\) has radical exactly \(S\).
+Dualizing therefore shows that the evaluations of \(U_T^\vee\) form a
+nondegenerate \((q-2)\)-space complementary to \(S\) in \(P_0\).
+Adding constants gives all of \(P_0\), proving the restriction rank and
+the top second-moment rank.  The same argument applies to the other
+sheet.
+
+The two top second moments are not merely proportional.  On
+\[
+ M_{q-3}=\operatorname{Sym}^{q-3}(V^\vee)
+          \otimes\det^{(q-3)/2}\otimes\chi
+\]
+the standard apolar pairing is \(G\)-invariant: its determinant weight
+\(\det^{-(q-3)}\) is cancelled by the square of the displayed twist,
+and \(\chi^2=1\).  Each sheet moment is a nonzero
+\(G^+\)-invariant form, hence a scalar multiple of this pairing, while
+an outer element transports one sheet to the other by an apolar
+isometry.  Their scalars, and thus the two forms, are equal.
+
+Finally, projection of the affine cocycle to the radial character
+\(\chi\) restricts on the simple group \(G^+\) to an additive
+homomorphism, hence vanishes.  The radial coordinate is consequently
+zero on the base sheet and constant on the other.  The secant-norm
+witness (3.4c)--(3.4d) for \(B_3\), and the second-Laplacian witness
+(3.11) for \(H_3\), show that the outer constant is nonzero.  Because
+\(q=0\), radial--radial and radial--top second moments vanish.  Thus
+\(r^\vee\) is exactly the one-dimensional radical, and its sheet
+constants are distinct.
+\end{proof}
+
+For reference, exact reconstruction of the two configurations gives
+\[
+\begin{array}{c@{\quad}c@{\quad}c@{\quad}c@{\quad}c}
+T&q&\text{sheet restriction ranks}
+ &\text{second-moment rank}&\dim L^{\circ2}\\ \hline
+B_3&7&6,6&5&13,\\
+H_3&11&10,10&9&21.
+\end{array}                                                   \tag{4.4}
+\]
+In each row the radical is one-dimensional and takes two distinct
+sheet values.  Proposition~\ref{prop:modular-sheet-mechanism}, rather
+than this table, proves these facts.  The exact certificate and its
+independent reconstruction are cross-checks only; no enumeration of
+equal-size subsets or row reduction is used in the proof.
+
+\begin{lemma}[A full-support quadratic relation forces the cube]
+\label{lem:hyperplane-square}
+Let \(\Omega\) be finite and let \(L\subseteq k^\Omega\) be a unital
+linear space with \(\dim L>1\).  Suppose
+\[
+ L^{\circ2}
+ =\left\{u:\sum_{\omega\in\Omega}\epsilon_\omega u_\omega=0\right\}
+\]
+for some \(\epsilon\in(k^\times)^\Omega\).  Then
+\[
+ L^{\circ3}=k^\Omega.
+\]
+\end{lemma}
+
+\begin{proof}
+If a nonzero vector \(\eta\) annihilated \(L^{\circ3}\), then
+\(L^{\circ2}\subseteq L^{\circ3}\) would put \(\eta\) in
+\(k\epsilon\).  For every \(f\in L\), the vector
+\(\eta\circ f\) also annihilates \(L^{\circ2}\), because
+\[
+ \langle\eta\circ f,h\rangle=\langle\eta,fh\rangle=0
+ \qquad(h\in L^{\circ2}).
+\]
+Thus \(\eta\circ f\in k\epsilon=k\eta\).  Since \(\eta\) has full
+support, every \(f\in L\) is constant, contrary to \(\dim L>1\).
+The annihilator of \(L^{\circ3}\) is therefore zero.
+\end{proof}
+
+\begin{theorem}[Balanced sheets and cubic-first orientation]
+\label{thm:balanced-cubic}
+For \(T=B_3,H_3\), the unordered pair
+\(\{\Omega_+,\Omega_-\}\) is intrinsic to the affine quotient
+configuration:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item up to interchange, \(\Omega_+\) and \(\Omega_-\) are the only
+complementary halves with equal first and second tensor moments;
+\item if \(\epsilon\) is \(+1\) on \(\Omega_+\) and \(-1\) on
+\(\Omega_-\), then
+\[
+ \mu_j=\sum_{M\in\Omega_T}\epsilon(M)x_M^{\odot j}
+       \in\operatorname{Sym}^j(W_T)
+\]
+satisfies
+\[
+ \mu_1=0,\qquad \mu_2=0,\qquad \mu_3\ne0;                    \tag{4.5}
+\]
+\item \(\mu_3\) is independent of the reference matching,
+\(G^+\) fixes it, and the outer coset negates it.  Within \(G\),
+\[
+ \operatorname{Stab}_G(\mu_3)=G^+,\qquad
+ \operatorname{Stab}_G(\F_q\mu_3)=G.                         \tag{4.6}
+\]
+\end{enumerate}
+Thus degree three is the first signed tensor moment, or linear
+functional of such a moment, that orients the recovered sheet pair.
+This minimality statement concerns signed tensor moments, not every
+possible nonlinear statistic of the configuration.
+\end{theorem}
+
+\noindent\emph{Proof mode.}
+Proposition~\ref{prop:radical-hadamard} is a symbolic proof.
+Proposition~\ref{prop:modular-sheet-mechanism} proves its hypotheses from
+the defining-characteristic permutation module and the two geometric
+radial witnesses.  Lemma~\ref{lem:hyperplane-square} forces the nonzero
+cubic without a tensor calculation or Gorenstein premise.  Signed Gale
+duality and the self-association criterion then give the Gorenstein
+geometry.  Exact finite arithmetic independently cross-checks the
+displayed ranks, and the Hilbert-symmetry arithmetic is kernel-checked in
+Lean.
+
+\begin{proof}
+Equality of first and second tensor moments for a complementary pair is
+equivalent, by polarization, to its sign weight annihilating
+\(L^{\circ2}\).  Since the characteristics are \(7\) and \(11\),
+polarization through degree two is valid.  Proposition
+\ref{prop:radical-hadamard} says that the annihilator is exactly the
+sheet-sign line.  A sign weight taking only the values \(\{\pm1\}\) is
+therefore \(\epsilon\) or \(-\epsilon\), proving (i).
+
+The same moment equalities give \(\mu_1=\mu_2=0\).
+Proposition~\ref{prop:radical-hadamard} identifies
+\(L^{\circ2}=\ker\langle\epsilon,-\rangle\), and \(\epsilon\) has full
+support.  Lemma~\ref{lem:hyperplane-square} gives
+\(L^{\circ3}=\F_q^{\Omega_T}\).  Hence \(\epsilon\) cannot annihilate all
+cubic products.  Since the lower signed moments vanish and \(6\) is
+invertible in \(\F_7,\F_{11}\), polarization gives \(\mu_3\ne0\).
+
+For the geometric consequence, let \(A\) be the \(q\)-by-\(2q\) matrix
+whose \(M\)-th column is
+\(\widehat x_M=(1,x_M)\), and put
+\(D=\operatorname{diag}(\epsilon(M))\).  Equal sheet sizes and the
+vanishing signed moments through degree two give
+\[
+ A D A^{\mathsf T}=0.
+\]
+The affine spanning statement gives \(\operatorname{rank}A=q\), so the
+rows of \(AD\) form the kernel of \(A\).  Thus \(AD\) is a Gale matrix,
+and its columns differ from those of \(A\) only by the nonzero scalars
+\(\epsilon(M)\).  The homogenized configuration is self-associated.
+
+Proposition~\ref{prop:radical-hadamard} also says that the \(2q\) points
+fail by exactly one to impose independent conditions on quadrics.  The
+unique dependence is \(\epsilon\), which has full support, so every
+one-point deletion imposes independent conditions.  Eisenbud--Popescu's
+self-association criterion \cite[Theorem~7.3]{EisenbudPopescu1998}
+therefore makes the coordinate ring arithmetically Gorenstein.
+
+Reduce by the homogenizing coordinate, which is regular because it is
+nonzero at every point.  The first three values of the \(h\)-vector are
+\[
+ 1,\quad q-1,\quad q-1,
+\]
+from \(\dim L=q\) and \(\dim L^{\circ2}=2q-1\).
+A Gorenstein \(h\)-vector is symmetric, and its entries sum to the length
+\(2q\).  These two facts force
+\[
+ h=(1,q-1,q-1,1).
+\]
+This recovers from the Gorenstein geometry the cubic fullness already
+forced by Lemma~\ref{lem:hyperplane-square}.
+
+If the reference matching changes, every point translates
+by one vector \(c\).  Expanding the signed third moment after
+\(x_M\mapsto x_M+c\) leaves \(\mu_3\) unchanged: the other terms contain
+\(\mu_2,\mu_1\), or
+\(\mu_0=\sum_M\epsilon(M)=0\).
+
+Every element of \(G^+\) preserves both sheets and hence fixes the signed
+sum.  Every element of the outer coset exchanges the sheets and negates
+it.  Since \(\mu_3\ne0\), these two transformation laws give (4.6).
+Finally (4.5) proves the stated minimality inside the signed tensor-moment
+family.
+\end{proof}
+
+\begin{corollary}[Graded evaluation algebra]
+\label{cor:graded-evaluation}
+Put \(L^{\circ0}=\langle1\rangle\), and let \(L^{\circ d}\) be the
+span of the pointwise products of \(d\) elements of \(L\).
+For \(T=B_3,H_3\), the pointwise powers of the affine evaluation
+space satisfy
+\[
+ \dim L^{\circ d}=
+ \begin{cases}
+  1,&d=0,\\
+  q,&d=1,\\
+  2q-1,&d=2,\\
+  2q,&d\ge3.
+ \end{cases}
+\]
+In particular, \(L^{\circ3}=\F_q^{\Omega_T}\).  The homogenized
+configuration
+\[
+ \widehat X_T=\{[1:x_M]:M\in\Omega_T\}\subseteq\mathbb P^{q-1}
+\]
+therefore has Hilbert function
+\[
+ 1,\ q,\ 2q-1,\ 2q,\ 2q,\ldots
+\]
+and \(h\)-vector \((1,q-1,q-1,1)\).
+\end{corollary}
+
+\begin{proof}
+Pair functions on \(\Omega_T\) with the sheet sign by
+\(\langle\epsilon,f\rangle=\sum_M\epsilon(M)f(M)\).
+Proposition~\ref{prop:radical-hadamard} gives
+\(L^{\circ2}=\ker\langle\epsilon,-\rangle\), with \(\epsilon\) of full
+support.  Lemma~\ref{lem:hyperplane-square} gives
+\(L^{\circ3}=\F_q^{\Omega_T}\).  Multiplication by \(1\) gives the same
+equality in every higher degree.  Homogeneous degree-\(d\) forms on
+\(\widehat X_T\) restrict to \(L^{\circ d}\), which gives the Hilbert
+function; its first difference is the stated \(h\)-vector.
+Changing the reference matching translates every \(x_M\).  Such a
+translation preserves \(L\) and all its pointwise powers and acts
+projectively on \(\widehat X_T\), so the graded algebra and Hilbert
+function are independent of the reference.
+\end{proof}
+
+\begin{corollary}[Self-association and cubic duality]
+\label{cor:self-associated-gorenstein}
+For \(T=B_3,H_3\), the configuration
+\(\widehat X_T\subseteq\mathbb P^{q-1}\) is a reduced
+self-associated arithmetically Gorenstein set of \(2q\) points.
+Every one-point deletion imposes independent conditions on quadrics,
+so \(\widehat X_T\) has the Cayley--Bacharach property in degree two.
+Its dualizing residue vector is the sheet sign \(\epsilon\).  The
+Artinian reduction by the homogenizing coordinate has Hilbert function
+\((1,q-1,q-1,1)\), and its Macaulay inverse system is the cubic line
+\(\F_q\mu_3\).
+\end{corollary}
+
+\begin{proof}
+The proof of Theorem~\ref{thm:balanced-cubic} already establishes signed
+Gale self-duality, the Cayley--Bacharach property in degree two, the
+Gorenstein coordinate ring, and the displayed \(h\)-vector.  These
+arguments commute with base change to an algebraic closure, so the
+Gorenstein conclusion descends to \(\F_q\).
+
+Let \(z\) be the homogenizing coordinate.  It is nonzero at every
+point and is therefore regular on the coordinate ring.  The degree
+\(d\) part of the reduction modulo \(z\) is
+\(L^{\circ d}/L^{\circ(d-1)}\), so its Hilbert function is the
+\(h\)-vector from Corollary~\ref{cor:graded-evaluation}.  The functional
+\[
+ f\longmapsto\sum_M\epsilon(M)f(x_M)
+\]
+annihilates degrees below three and is nonzero in degree three.
+Thus \(\epsilon\) is the socle residue vector.  Degree-three
+polarization identifies its Macaulay dual generator with \(\mu_3\).
+\end{proof}
+
+The implication above is the zero-defect case of the modern
+self-dual-code criterion: the Gorenstein defect is measured by the
+defect of the Schur square, or equivalently by decomposability
+\cite{RodriguezPajaresEtAl2025}.  Here
+\(\dim L^{\circ2}=2q-1\) already places both configurations in the
+zero-defect case.  The ideal, deletion, socle, inverse-system, and
+minimal-resolution calculations are also checked directly in the
+verification bundle.
+Self-association does not select an affine origin.  Translating all
+\(x_M\) acts projectively on the columns of \(A\) and preserves the
+signed Gale identity, in agreement with the nontrivial base-choice
+obstruction behind the quotient construction.
+
+The cubic remembers an orientation that the linear quotient does not.
+Indeed, the signed linear relation
+\[
+ \sum_{M\in\Omega_+}x_M=\sum_{M\in\Omega_-}x_M
+\]
+already shows that the sheet sign is killed by the linear
+quotient map.  Quadratic products recover the unordered
+partition through (4.2), and the cubic supplies the sign exchanged when
+the two recovered levels are swapped.
+
+\begin{corollary}[Secant-product tensor syzygies]
+\label{cor:secant-product-syzygies}
+For \(T=B_3,H_3\), let \(m_Q:R_{m-2}\to R_m\) denote multiplication
+by \(Q\).  Regarding the displayed powers as symmetric tensors, not
+polynomial powers, the canonically scaled secant products satisfy
+\[
+\begin{aligned}
+\sum_M\epsilon(M)P_M&=0,\\
+\sum_M\epsilon(M)P_M^{\odot2}&=0,\\
+\sum_M\epsilon(M)P_M^{\odot3}
+  &=\operatorname{Sym}^3(m_Q)(\mu_3)\ne0.
+\end{aligned}                                               \tag{4.7}
+\]
+\end{corollary}
+
+\begin{proof}
+Substitute \(P_M=P_{M_T}+Qx_M\) and expand.  Each sheet has
+\(q=0\) elements in \(\F_q\), and the signed quotient moments vanish
+through degree two.  All terms below cubic degree cancel, leaving
+\(\operatorname{Sym}^3(m_Q)(\mu_3)\) in degree three.  Since
+\(\F_q[X,Y,Z]\) is a domain, multiplication by \(Q\) is injective;
+over a field, the symmetric powers of an injective linear map are
+injective.
+\end{proof}
+
+\section*{Conclusion}
+
+Restriction to a conic erases the pairing of marked points, but division
+by its equation retains a structured record of the factorization.  The
+four-endpoint switch produces an affine quotient configuration, and the
+three rank-three systems span spaces of dimensions \(3,6,10\).  In type
+\(H_3\), the quotient retains the top harmonic part and deepest radial
+line while losing exactly \(Q\mathcal H_2\); its base-choice cocycle also
+obstructs an equivariant affine origin.
+
+In the balanced \(B_3\) and \(H_3\) cases, quadratic products recover the
+unordered factorization sheets, and their first signed tensor moment is
+cubic.  The same cubic is the Macaulay inverse system of the
+self-associated arithmetically Gorenstein homogenization.  Thus the
+information forgotten by conic restriction returns in two stages:
+quadratic data recover the unoriented factorization, and cubic data
+recover its orientation.
+
+The completeness theorem shows that, among full projective matching orbits,
+a one-dimensional strength-two trade space whose two fibers are
+one-factorizations can occur only for \(B_3/\F_7\) and \(H_3/\F_{11}\).
+The remaining structural question is whether the one-factorization
+hypothesis follows from weaker intrinsic properties of the quotient
+configuration.  The linear ranks have one proof from
+representations---the affine connecting cocycle, its irreducible Fischer
+summands, and a radial trace---but the two radial nonvanishing witnesses
+remain type-specific.
+
+The appendix refinements require a chosen \(A_4\)-structure and do not
+canonically identify the depth plane with the relative-cubic plane.
+
+\appendix
+
+The appendices record further consequences and refinements of the
+\(H_3\) configuration that are not needed for the main theorem.
+Appendices A--C treat
+decorated incidence profiles, their modular depth, and arithmetic marker
+splitting; Appendices D and E isolate the resulting cubic structures.
+The final appendix gives the verification architecture for all statements.
+
+\section{Six profiles and matching-row reconstruction}
+\label{sec:six-profiles}
+
+We now specialize to \(H_3\).  Put
+\[
+ G=\operatorname{PGL}_2(11),\qquad
+ G^+=\operatorname{PSL}_2(11),\qquad
+ X=\Omega_{H_3}\simeq G/H,
+\]
+where \(H\simeq A_5\) is the stabilizer of the base matching in
+(3.1).  Thus \(X=X_+\sqcup X_-\), with \(|X_+|=|X_-|=11\).
+The construction has four stages:
+\[
+ (A_+,A_-)\longmapsto K
+ \longmapsto\text{four oriented cell pairs}
+ \longmapsto D(M)
+ \longmapsto K\backslash G/H.
+\]
+The ordered parent pair supplies the \(A_4\)-subgroup \(K\); its cell
+partition supplies four signed incidence counts; those counts recover
+the double-coset label.  Only the first two stages require coordinates.
+
+\subsection{The decorated parent correspondence}
+
+On
+\(V=\F_{11}^3\), set
+\[
+ q_0(x,y,z)=x^2+y^2+z^2,\qquad
+ \cC_0=\mathbb P\{q_0=0\}.
+\]
+The projectivity
+\[
+ \psi=
+ \begin{pmatrix}10&2&1\\1&2&10\\3&0&3\end{pmatrix}
+ \quad\text{satisfies}\quad
+ q_0(\psi(X,Y,Z)^t)=3(XZ-Y^2),                         \tag{A.1}
+\]
+so \(\psi\circ\nu\) identifies the endpoint conic of Section~2 with
+\(\cC_0\).  In these coordinates take the two six-point sets
+\[
+\begin{aligned}
+A_+={}&\{(0:1:4),(0:1:7),(1:0:3),(1:0:8),
+          (1:4:0),(1:7:0)\},\\
+A_-={}&\{(0:1:3),(0:1:8),(1:0:4),(1:0:7),
+          (1:3:0),(1:8:0)\}.
+\end{aligned}                                           \tag{A.2}
+\]
+Let \(\mathcal P=G\cdot A_+\), where \(G\) is viewed as the full
+projective stabilizer of \(\cC_0\).  For \(A\in\mathcal P\) and
+\(a\in A\), let \(C_{A,a}\) be the conic through
+\(A\setminus\{a\}\).  The six pairs
+\[
+ C_{A,a}\cap\cC_0,\qquad a\in A,                        \tag{A.3}
+\]
+form a perfect matching \(M_A\) of the twelve points of \(\cC_0\).
+On this \(22\)-point orbit, \(A\mapsto M_A\) is a
+\(G\)-equivariant bijection onto \(X\).  This is the
+\emph{matching-decorated parent correspondence}; its bijectivity and
+the assertion that (A.3) consists of six disjoint pairs are exact
+finite inputs.  It is the secant-factorization counterpart of the
+self-polar matching and Brianchon-support reconstruction obtained from
+the Clebsch decoding geometry \cite{RuddRigidity2026}.
+
+Put \(H_\pm=\operatorname{Stab}_G(A_\pm)\) and
+\[
+ K=H_+\cap H_-,\qquad
+ J=\begin{pmatrix}1&0&0\\0&0&-1\\0&-1&0\end{pmatrix}.
+                                                               \tag{A.4}
+\]
+Then \(K\simeq A_4\), \(J(A_+)=A_-\), and \(J\) normalizes \(K\) and
+exchanges \(X_+\) with \(X_-\).  Thus the \emph{ordered golden pair}
+means precisely the ordered pair \((A_+,A_-)\).
+
+Choose linear representatives of \(K\) preserving \(q_0\), and let
+\(\widetilde K=\F_{11}^{\times}K\).  For the following eight vectors,
+define \(R_i=\mathbb P(\widetilde K r_i)\):
+\[
+\begin{array}{c@{\quad}c@{\qquad}c@{\quad}c}
+i&r_i&i&r_i\\ \hline
+1&(0,1,4)&10&(0,1,3)\\
+3&(0,1,2)&13&(0,1,5)\\
+6&(1,3,2)&14&(1,1,5)\\
+9&(1,4,2)&11&(1,2,4).
+\end{array}                                               \tag{A.5}
+\]
+These are cells in the scalar-\(K\) orbit partition of
+\(\mathbb P(V)\).  The involution \(J\) exchanges the four pairs
+\[
+ (R_1,R_{10}),\quad (R_3,R_{13}),\quad
+ (R_6,R_{14}),\quad (R_9,R_{11}).                         \tag{A.6}
+\]
+Only these four oriented pairs enter the argument.  Reversing the
+golden pair reverses all four orientations.
+
+This profile layer uses more decoration than the balanced-sheet theorem.
+The quotient configuration intrinsically recovers the unordered sheets,
+but it does not select an ordered golden pair or the resulting
+scalar-\(K\) refinement.  The reconstruction below is relative to that
+selected refinement.
+
+\subsection{Incidence profiles}
+
+For \(M\in X\), let \(S_M\) be the union of its six secants in
+\(\mathbb P^2(\F_{11})\), and put
+\[
+ Z_M(R)=|S_M\cap R|.
+\]
+Equivalently, \(Z_M(R)\) counts the points of \(R\) at which \(P_M\)
+vanishes.  Define the \emph{depth profile}
+\[
+ \begin{aligned}
+ D(M)=\bigl(&Z_M(R_1)-Z_M(R_{10}),\
+              Z_M(R_3)-Z_M(R_{13}),\\
+            &Z_M(R_6)-Z_M(R_{14}),\
+              Z_M(R_9)-Z_M(R_{11})\bigr)\in\F_{11}^4.
+ \end{aligned}                                           \tag{A.7}
+\]
+The entries here and in the profile table below are first formed as
+integer differences of cardinalities, using the canonical cell
+orientation in (A.6), and only then reduced modulo \(11\).
+This definition uses only zero sets of secant products, so it is
+unchanged if their equations are rescaled.
+
+\begin{theorem}[Six-profile reconstruction]
+\label{thm:six-profile-reconstruction}
+The \(K\)-orbits on each sheet \(X_\pm\) have sizes \(1,4,6\).
+With the orientation in (A.6), the corresponding profiles and fibre
+sizes are
+\[
+\begin{array}{c@{\quad}c@{\quad}c}
+\text{sheet}& |D^{-1}(v)|&v\\ \hline
++&1&v_1=(-6,0,12,-12),\\
++&4&v_2=(-3,3,0,3),\\
++&6&v_3=(3,-2,-2,0),\\
+-&1&-v_1,\\
+-&4&-v_2,\\
+-&6&-v_3.
+\end{array}                                                \tag{A.8}
+\]
+The six vectors are pairwise distinct.  Hence \(D\) recovers the
+double-coset row in
+\[
+ K\backslash G/H
+\]
+of every matching.  Its linear span nevertheless has dimension only
+two: over \(\F_{11}\) it is the plane
+\[
+ 2a+2b+c=0,\qquad 9a+8b+d=0.                              \tag{A.9}
+\]
+The two singleton profiles recover their individual matchings.  Under
+the matching-decorated parent correspondence, they therefore recover
+the corresponding individual \(H_3\) parent.  A profile in a fibre of
+size four or six recovers only that \(K\)-orbit, not an individual
+matching.
+\end{theorem}
+
+\noindent\emph{Proof mode.}
+The subgroup-mark reduction and the implications from equivariance are
+conceptual.  The six representative incidence rows in (A.10) below are
+certificate-checked exact counts and are reconstructed by an independent
+implementation.  A companion certificate verifies that the matching
+decoration uniquely recovers its parent on the \(22\)-point \(H_3\)
+locus.
+
+\begin{proof}
+The permutation character of \(K\) on either eleven-point sheet has
+values
+\[
+ (11,3,2)
+\]
+on elements of orders \(1,2,3\).  The marks of the transitive
+\(A_4\)-sets are
+\[
+\begin{array}{c@{\quad}c@{\quad}c}
+\text{\(K\)-set}&\text{size}&\text{marks on orders \(1,2,3\)}\\ \hline
+K/K&1&(1,1,1)\\
+K/V_4&3&(3,3,0)\\
+K/C_3&4&(4,0,1)\\
+K/C_2&6&(6,2,0)\\
+K/1&12&(12,0,0).
+\end{array}
+\]
+Comparing marks gives the unique nonnegative decomposition
+\[
+ X_+|_K\simeq K/K\ \sqcup\ K/C_3\ \sqcup\ K/C_2.
+\]
+The orbit sizes are therefore \(1,4,6\); conjugation by \(J\) gives the
+same decomposition on \(X_-\).
+
+For \(k\in K\), the transformation \(k\) preserves every cell in
+(A.6) and carries \(S_M\) to \(S_{kM}\).  Thus \(D(kM)=D(M)\).
+The involution \(J\) exchanges the two cells in every oriented pair and
+carries \(S_M\) to \(S_{JM}\), so
+\[
+ D(JM)=-D(M).
+\]
+It remains to count one representative on each positive-sheet orbit.
+The exact incidence rows are
+\[
+\begin{array}{c@{\quad}c@{\quad}c@{\quad}c}
+\text{orbit size}&\operatorname{Stab}_K(M)&
+ \text{zero counts in the four pairs of (A.6)}&D(M)\\ \hline
+1&A_4&(0,6;\ 0,0;\ 12,0;\ 0,12)&v_1,\\
+4&C_3&(3,6;\ 3,0;\ 3,3;\ 6,3)&v_2,\\
+6&C_2&(3,0;\ 1,3;\ 2,4;\ 6,6)&v_3.
+\end{array}                                               \tag{A.10}
+\]
+The \(J\)-images supply the three negative rows.  These six vectors are
+pairwise distinct, so their fibres are precisely the six \(K\)-orbits.
+
+Row reduction over \(\F_{11}\) gives rank two and the equations (A.9).
+This rank drop does not merge orbit labels: linear rank and
+set-theoretic separation are different assertions.  Finally, a
+singleton fibre contains its matching without residual choice.  The
+stabilizer of the matching \(M_A\) from (A.3) is the same \(A_5\) as
+the stabilizer of its parent \(A\).  The equivariant decorated transform between
+the two \(G/H\)-orbits is therefore a bijection, so the matching also
+determines its parent.  The stated limitation for the other four rows
+follows from their fibre sizes.
+\end{proof}
+
+\begin{corollary}[Decorated sheet classifier]
+\label{cor:decorated-sheet-classifier}
+Relative to the orientation in (A.6), the profile \(D(M)\) determines
+the sheet containing \(M\).  The antipodal singleton pair
+\(\{v_1,-v_1\}\) recovers the unordered golden matching pair and hence
+the unordered golden parent pair; choosing the orientation selects one
+member.
+\end{corollary}
+
+\begin{proof}
+The positive and negative profile sets in (A.8) are disjoint, and the
+only singleton fibres are \(v_1\) and \(-v_1\).  Apply the
+matching--parent bijection from
+Theorem~\ref{thm:six-profile-reconstruction}.
+\end{proof}
+
+This pointwise classifier does not contradict the failure of a linear
+sheet sign in Section~\ref{sec:balanced}.  The map \(D\) uses zero
+incidences with the selected scalar-\(K\) refinement; it is not a linear
+functional on the affine quotient configuration.  Without that extra
+decoration, the quadratic and cubic moment statements remain the
+intrinsic recovery mechanism.
+
+The profile compression also retains the cubic-first orientation from
+Section~\ref{sec:balanced}.  The three positive vectors satisfy the
+integral weighted relation
+\[
+ v_1+4v_2+6v_3=0.                                       \tag{A.11}
+\]
+\begin{corollary}[Orbit weights from normalized profiles]
+\label{cor:profile-ray-weights}
+The three incidence-normalized vectors \(v_1,v_2,v_3\) recover the
+orbit-size multiset \(\{1,4,6\}\).  They also recover the stabilizer
+orders \(\{12,3,2\}\) inside \(K\simeq A_4\).  The underlying rational
+rays alone do not recover these weights.
+\end{corollary}
+
+\begin{proof}
+The coordinates of each \(v_i\) are fixed by the cardinality
+differences in (A.7), so independent rescaling is not allowed.  These
+three integral vectors span a plane over \(\mathbb Q\), and (A.11) is
+the primitive positive generator of their relation lattice.  Its
+coefficients recover the three orbit sizes without labels.
+Orbit--stabilizer then gives \(12/1,12/4,12/6\).  If the vectors are
+replaced by primitive generators of their rays, the relation becomes
+\(1:2:1\), which proves the final warning.
+\end{proof}
+
+\section{Modular depth and the projective-cover bridge}
+\label{sec:modular-depth}
+
+Because an \(H_3\) sheet has eleven points in characteristic eleven,
+the sum of its basis vectors is simultaneously constant and
+augmentation-zero.  Linearizing the three incidence rows therefore
+kills exactly this constant direction and leaves the two-dimensional
+profile plane.  The following module statement identifies that loss.
+
+Retain the notation of Section~\ref{sec:six-profiles}, put
+\[
+ k=\F_{11},\qquad L=G^+=\operatorname{PSL}_2(11),
+ \qquad V=k[X_+]\simeq\operatorname{Ind}_H^L\mathbf 1,
+\]
+and regard $V$ as the permutation module on one eleven-point sheet.
+Let $e_1,e_4,e_6$ be the indicator functions of the three $K$-orbits,
+in orbit-size order.  Thus
+\[
+ V^K=ke_1\oplus ke_4\oplus ke_6,\qquad
+ \mathbf 1=e_1+e_4+e_6.                                \tag{B.1}
+\]
+Linearizing the incidence construction in (A.7) gives
+\[
+ \mathcal D:V^K\longrightarrow k^4,\qquad
+ e_i\longmapsto i\,u_i,                                \tag{B.2}
+\]
+where $u_1=v_1$, $u_4=v_2$, and $u_6=v_3$ are the profiles on the
+orbits of the indicated sizes.
+Equation (A.11) says exactly that $\mathcal D(\mathbf1)=0$.
+
+\begin{proposition}[Modular depth quotient]
+\label{prop:modular-depth-quotient}
+The $L$-module $V$ is the projective cover $P(\mathbf1)$ and has
+Loewy dimensions
+\[
+ 1\mid9\mid1.
+\]
+The map $\mathcal D$ has kernel $k\mathbf1$ and induces an isomorphism
+\[
+ P(\mathbf1)^K/\operatorname{soc}P(\mathbf1)
+ \ \xrightarrow{\ \sim\ }\ \langle u_1,u_4,u_6\rangle_k. \tag{B.3}
+\]
+The sheet exchanged by $J$ carries the negative copy of this quotient.
+\end{proposition}
+
+\noindent\emph{Proof mode.}
+Projectivity, indecomposability, fixed-point exactness, and the socle
+quotient are conceptual.  Absolute irreducibility of the
+nine-dimensional middle layer and the rank and kernel of
+\(\mathcal D\) are exact generator-matrix calculations in the
+\texttt{relative-cubic-depth} bundle, reconstructed by its independent
+replay.
+
+\begin{proof}
+The order of $H\simeq A_5$ is prime to $11$, so its trivial module is
+projective and induction makes $V$ projective.  The action of $L$ on
+$X_+$ is doubly transitive.  Hence $\operatorname{End}_L(V)$ is
+generated by the identity and the all-ones operator $E$.  In
+characteristic eleven,
+\[
+ E^2=11E=0,
+\]
+so this endomorphism algebra is local.  Thus $V$ is indecomposable.  Its
+trivial head occurs once, and consequently $V=P(\mathbf1)$.  The
+constant vector is its one-dimensional socle.  The remaining
+nine-dimensional layer is absolutely irreducible; equivalently, the
+exact generator matrices on it span the full $9$-by-$9$ matrix algebra.
+This gives the displayed Loewy dimensions.
+
+Taking $K$-fixed points is exact because $11\nmid |K|=12$.  The orbit
+sizes $1,4,6$ give (B.1).  The three vectors in (B.2) span the plane
+ (A.9), and their only relation is (A.11), so
+$\ker\mathcal D=k\mathbf1$.  This proves (B.3).  Finally
+$D(JM)=-D(M)$, which attaches the outer character on the opposite
+sheet.
+\end{proof}
+
+\begin{corollary}[The canonical nine-space bridge]
+\label{cor:h3-nine-space-bridge}
+For the fixed marked conic and sheet \(X_+\), there is a canonical
+\(G^+\)-module isomorphism
+\[
+ \operatorname{rad}P(\mathbf1)/\operatorname{soc}P(\mathbf1)
+ \ \xrightarrow{\ \sim\ }\ M_8\!\downarrow_{G^+}.             \tag{B.4}
+\]
+It sends the augmentation class of
+\(\sum_{M\in X_+}a_M[M]\) to
+\[
+ \sum_{M\in X_+}a_M\,\pi_8(x_M),
+ \qquad \sum_Ma_M=0,                                         \tag{B.5}
+\]
+where \(\pi_8\) is the top-harmonic projection.  Formula (B.5) is
+independent of the reference matching.
+\end{corollary}
+
+\begin{proof}
+The unique trivial head map in Proposition~\ref{prop:modular-depth-quotient}
+is the augmentation map, so
+\[
+ \operatorname{rad}P(\mathbf1)=\ker(V\xrightarrow{\sum}k).
+\]
+Changing the reference matching translates every \(x_M\) by the same
+vector, so the augmentation condition makes (B.5) reference-independent.
+The affine cocycle term in \(x_{gM}\) cancels for the same reason, hence
+the map is \(G^+\)-equivariant.  The same-sheet first-moment identity of
+Proposition~\ref{prop:radical-hadamard} sends the constant vector
+\(\mathbf1\), which lies in the augmentation module because
+\(|X_+|=11=0\) in \(k\), to zero.  Thus (B.5) descends to
+\(\operatorname{rad}P(\mathbf1)/\operatorname{soc}P(\mathbf1)\).
+
+Its image contains a nonzero same-sheet quotient and is \(G^+\)-stable.
+The irreducibility of \(M_8\!\downarrow_{G^+}\) therefore makes it
+surjective.  Both sides have dimension nine, so it is an isomorphism.
+\end{proof}
+
+\begin{corollary}[The homogeneous projective-cover bridge]
+\label{cor:h3-homogeneous-projective-cover}
+For the cocycle representative \(c_8\) determined by the chosen
+reference matching, let \(E_{c_8}\) be the \(G\)-module defined in
+(3.11b).
+There is a \(G^+\)-module isomorphism
+\[
+ P(\mathbf1)/\operatorname{soc}P(\mathbf1)
+ \ \xrightarrow{\ \sim\ }\ E_{c_8}\!\downarrow_{G^+},          \tag{B.6}
+\]
+given by
+\[
+ \Theta\!\left(\sum_{M\in X_+}a_M[M]\right)
+   =\left(\sum_{M\in X_+}a_M\pi_8(x_M),\ \sum_{M\in X_+}a_M\right).
+                                                               \tag{B.7}
+\]
+Thus the extension class, unlike a cocycle representative or an affine
+origin, is canonical: the top-harmonic homogeneous extension restricts
+to the nonsplit exact sequence
+\[
+ 0\longrightarrow M_8\!\downarrow_{G^+}
+ \longrightarrow P(\mathbf1)/\operatorname{soc}P(\mathbf1)
+ \longrightarrow \mathbf1\longrightarrow0 .
+\]
+If \(\widetilde E_c\) denotes the homogenization of the full affine
+quotient with translation space \(M_8\oplus M_0\), then
+\[
+ \widetilde E_c\!\downarrow_{G^+}\simeq
+ P(\mathbf1)/\operatorname{soc}P(\mathbf1)\oplus\mathbf1,      \tag{B.8}
+\]
+where the last summand is the radial module \(M_0\!\downarrow_{G^+}\).
+\end{corollary}
+
+\begin{proof}
+The affine transformation law
+\(\pi_8(x_{gM})=g\pi_8(x_M)+c_8(g)\) makes \(\Theta\)
+\(G^+\)-equivariant.  The constant vector maps to zero: its second
+coordinate is \(|X_+|=11=0\) in \(k\), and its first coordinate
+vanishes by the same-sheet first-moment identity.  Hence \(\Theta\)
+descends through the socle.
+
+On the kernel of augmentation, the descended map is the isomorphism
+of Corollary~\ref{cor:h3-nine-space-bridge}; on the one-dimensional
+head it induces the identity through the second coordinate.  It is
+therefore an isomorphism.  The exact sequence cannot split:
+Proposition~\ref{prop:modular-depth-quotient} gives
+\(P(\mathbf1)/\operatorname{soc}P(\mathbf1)\) the simple socle \(M_8\),
+whereas a splitting would put a trivial summand in its socle.  Finally,
+\(M_0=\chi\) is trivial on \(G^+\), and its cocycle vanishes there,
+proving (B.8).
+\end{proof}
+
+\begin{remark}[Ambient and intrinsic sheet recovery]
+With the harmonic--radial decomposition retained, the \(M_0\)-projection
+already separates the two \(H_3\) sheets: it is zero on \(X_+\), constant
+on \(X_-\), and nonzero by the witness (3.11).  The quadratic theorem of
+Section~\ref{sec:balanced} is stronger in a different sense: it recovers
+the sheets intrinsically from the abstract affine point configuration,
+without retaining the ambient Fischer operator.
+\end{remark}
+
+This quotient identifies the precise modular loss in the six-profile
+construction.  Before linearization, the six profiles remain distinct
+and recover all six double-coset labels.  After linearization, the
+constant orbit trade dies and only the two-dimensional depth plane
+remains.  Conversely, the three rational rays in that plane remain
+distinct but do not retain their orbit weights.  The weights \(1,4,6\) are
+recovered only when the quotient is supplied with the
+incidence-normalized vectors of (A.8), as in
+Corollary~\ref{cor:profile-ray-weights}.
+
+\begin{remark}[Reduction of the profile table]
+\label{rem:bad-profile-primes}
+The four-coordinate profiles in (A.8) are integral before reduction.
+The greatest common divisor of their nonzero $2$-by-$2$ minors is $3$.
+Their span therefore drops below rank two only in characteristic $3$.
+The six signed rows remain distinct away from characteristics $2$ and
+$3$: characteristic $2$ identifies antipodes, while characteristic
+$3$ sends the rows $v_1$ and $v_2$ to zero.  This is a statement about
+the displayed integral table, not a construction of the marked conic
+geometry in those characteristics.
+\end{remark}
+
+\section{Arithmetic splitting of the marker algebra}
+\label{sec:arithmetic-splitting}
+
+The arithmetic representatives of the three configurations come in
+conjugate pairs.  Besides the base matchings in (3.1), we use
+\[
+\begin{aligned}
+ M_{B,-}&=\{\{0,\infty\},\{1,3\},\{2,6\},\{4,5\}\},\\
+ M_{B,+}&=\{\{0,\infty\},\{1,5\},\{2,3\},\{4,6\}\},\\
+ M_{H,-}&=\{\{0,10\},\{1,\infty\},\{2,7\},\{3,5\},
+                   \{4,8\},\{6,9\}\}.
+\end{aligned}                                             \tag{C.1}
+\]
+The pair for $A_3$ consists of two copies of $M_{A_3}$, the pair for
+$B_3$ is $(M_{B,-},M_{B,+})$, and the pair for $H_3$ is
+$(M_{H_3},M_{H,-})$.  To make the arithmetic bridge part of the
+definition, let \(\bar k\) be an algebraic closure of the working field
+and define the root-specialization maps
+\[
+\begin{array}{c@{\quad}c@{\quad}c}
+T&\text{root}&\sigma_T(\text{root})\\ \hline
+A_3&\sqrt2,\ -\sqrt2&M_{A_3},\ M_{A_3}\\
+B_3&3,\ 4&M_{B,-},\ M_{B,+}\\
+H_3&4,\ 8&M_{H_3},\ M_{H,-}.
+\end{array}                                               \tag{C.2}
+\]
+Thus the \emph{marker datum} is the quadratic algebra together with
+\(\sigma_T\), not the polynomial alone.  Exact projective transport
+places the displayed $B_3$ and $H_3$ values in
+\(\Omega_{B_3}\) and \(\Omega_{H_3}\).  The certificate also verifies
+that \(\sigma_T\) is the reduction of the corresponding integral
+Coxeter frames; the theorem below needs only the explicit map (C.2).
+We call the datum \emph{fused} when its two geometric roots have one
+rational matching value, and \emph{split} when they give two distinct
+rational matching sheets.
+
+\begin{lemma}[Split--inert frame calculation]
+\label{lem:split-inert-frames}
+The three marker polynomials factor as follows:
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+A_3,\ q=5&t^2-2&\text{irreducible},\\
+B_3,\ q=7&t^2-2=(t-3)(t-4)&\text{split},\\
+H_3,\ q=11&t^2-t-1=(t-4)(t-8)&\text{split}.
+\end{array}                                               \tag{C.3}
+\]
+In the first row the two geometric roots form one Frobenius orbit over
+$\F_{25}$.  In each split row the nontrivial involution of the
+quadratic marker algebra exchanges the two rational roots.
+\end{lemma}
+
+\begin{proof}
+The nonzero squares modulo $5$ are $1$ and $4$, so $2$ is not a square.
+If $u^2=2$ in $\F_{25}$, the nontrivial $\F_5$-automorphism sends $u$
+to $-u$, and hence exchanges the two roots.  The remaining
+factorizations follow by direct substitution.
+\end{proof}
+
+\begin{theorem}[Marker specialization and \(H_3\) arithmetic gluing]
+\label{thm:rank-three-arithmetic-gluing}
+For these arithmetic representatives of the rank-three matching
+configurations, the following hold.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item The $A_3$ marker datum is fused over $\F_5$.  The $B_3$ and
+$H_3$ marker data split into two rational matching sheets over $\F_7$
+and $\F_{11}$, respectively.
+\item In the $H_3$ case, the stabilizers $H_+$ and $H_-$ of the
+singleton matching in each rational sheet are isomorphic to $A_5$,
+satisfy
+\[
+ H_+\cap H_-=K\simeq A_4,\qquad
+ \langle H_+,H_-\rangle=\operatorname{PSL}_2(11),
+                                                               \tag{C.4}
+\]
+and are exchanged by a projectivity $J$ of nonsquare determinant.  The
+normalizer \(N_G(K)\) is a rational \(S_4\) whose determinant-square
+kernel is \(K\).
+\item The determinant character that distinguishes the two rational
+sheets also negates the depth profiles.  Thus choosing one root in the
+split marker algebra chooses one sheet, while its singleton profile
+chooses the corresponding decorated matching row.  Forgetting that
+choice leaves the unordered pair.
+\end{enumerate}
+\end{theorem}
+
+\noindent\emph{Proof mode.}
+Lemma~\ref{lem:split-inert-frames} and the determinant-character
+deductions are conceptual.  The agreement of the specialization map
+(C.2) with the integral Coxeter frames, the matching stabilizers and
+intersections, and the generated subgroup in (C.4) are exhaustive
+exact finite checks.
+The classical subgroup names use the standard subgroup structure of
+$\operatorname{PGL}_2(11)$ \cite{Atlas1985,Giudici2007}.
+
+\begin{proof}
+Part (a) records the specialization data in (C.2).  Its two
+\(A_3\) roots have the same matching value.  The two values in the
+\(B_3\) row are exchanged by
+\(x\mapsto-x\), and the two values in the \(H_3\) row are exchanged by
+\[
+ x\longmapsto\frac{x-1}{x+1}.
+\]
+The exact transport check verifies these identities on the displayed
+matchings.  Together with Lemma~\ref{lem:split-inert-frames}, they prove
+(a).
+
+For $H_3$, exact projective closure gives
+\[
+ |H_+|=|H_-|=60,\qquad |H_+\cap H_-|=12,\qquad
+ |\langle H_+,H_-\rangle|=660.
+\]
+Both stabilizers lie in the determinant-square subgroup, while the
+displayed transporter has nonsquare determinant.  The normalizer
+\(N_G(K)\) has order $24$, and its determinant-square kernel has order
+$12$.  The cited subgroup identifications give (C.4) and the
+$S_4/A_4$ hinge, proving (b).
+
+The determinant-square subgroup has the two matching sheets as its
+orbits, and $J$ exchanges them.  Section~\ref{sec:six-profiles} proves
+$D(JM)=-D(M)$ and identifies the unique singleton in each sheet.
+Theorem~\ref{thm:six-profile-reconstruction} then returns the decorated
+matching row from that singleton.  This proves (c).
+\end{proof}
+
+Arithmetic splitting and modular depth retain different amounts of
+information.  Splitting produces a two-point choice of sheet.  The
+depth quotient is defined only after the $A_4$-refinement has been
+selected and remembers all three orbit rays modulo the constant socle.
+The first choice orients the second, but does not canonically identify
+it with any cubic quotient of the ten-dimensional factorization space.
+Appendix~\ref{app:tate-plane} makes that boundary precise.
+
+\section{Cubic structure of the profile plane}
+\label{app:profile-cubic}
+
+\begin{lemma}[Three-ray cubic forcing]
+\label{lem:three-ray-cubic}
+Let \(k\) have characteristic different from \(2\) and \(3\).  Suppose
+\(u_1,u_2\) form a basis of a two-dimensional \(k\)-space and
+\(n_1,n_2,n_3\in k^\times\) satisfy
+\[
+ n_1u_1+n_2u_2+n_3u_3=0.
+\]
+For the signed antipodal measure
+\[
+ \xi=\sum_{i=1}^3 n_i(\delta_{u_i}-\delta_{-u_i}),
+\]
+the moments of degrees one and two vanish, while the cubic moment is
+nonzero.
+\end{lemma}
+
+\begin{proof}
+The relation kills the first moment, and antipodality kills every even
+moment.  Write
+\[
+ u_3=-\frac{n_1}{n_3}u_1-\frac{n_2}{n_3}u_2.
+\]
+In \(\sum_i n_i u_i^{\odot3}\), the coefficient of
+\(u_1^{\odot2}\odot u_2\) is
+\[
+ -\frac{3n_1^2n_2}{n_3^2},
+\]
+which is nonzero.  The signed cubic is twice this tensor and is therefore
+nonzero as well.
+\end{proof}
+
+\begin{corollary}[The mass-zero cubic flag]
+\label{cor:mass-zero-cubic}
+In Lemma~\ref{lem:three-ray-cubic}, suppose also that
+\(n_1+n_2+n_3=0\).  Then its half-cubic factors as
+\[
+ \frac12M_3(\xi)=\sum_{i=1}^3n_i u_i^{\odot3}
+ =\frac{n_1n_2}{(n_1+n_2)^2}
+ (u_1-u_2)^{\odot2}\odot
+ \bigl((2n_1+n_2)u_1+(n_1+2n_2)u_2\bigr).               \tag{D.1}
+\]
+The two displayed lines are distinct.  Hence the cubic intrinsically
+defines a doubled line and a residual simple line; its Hessian recovers
+the doubled line.
+\end{corollary}
+
+\begin{proof}
+Since \(n_3=-(n_1+n_2)\), the weighted vector relation gives
+\[
+ u_3=\frac{n_1u_1+n_2u_2}{n_1+n_2}.
+\]
+Substitution and expansion give (D.1).  The residual factor would equal
+the doubled factor only if \(3(n_1+n_2)=0\), which is impossible under
+the hypotheses.  The Hessian of a binary cubic \(L^2R\), with \(L\) and
+\(R\) distinct, is a nonzero scalar multiple of \(L^2\).
+\end{proof}
+
+For the incidence-normalized profiles of Section~\ref{sec:six-profiles},
+put
+\[
+ \eta=\delta_{v_1}+4\delta_{v_2}+6\delta_{v_3}
+      -\delta_{-v_1}-4\delta_{-v_2}-6\delta_{-v_3}.
+\]
+Then
+\[
+ M_j(\eta)=
+ \bigl(1-(-1)^j\bigr)
+ \sum_{i=1}^3 n_i v_i^{\odot j},
+ \qquad (n_1,n_2,n_3)=(1,4,6).                           \tag{D.2}
+\]
+Equation (A.11) kills the first moment, and antipodality kills every even
+moment.  The first two profiles are independent over \(\F_{11}\), since
+the determinant of their first two coordinates is \(-18\ne0\).
+Lemma~\ref{lem:three-ray-cubic} therefore forces the cubic to be nonzero.
+In the frozen normalization, its first coordinate is
+\[
+2\bigl((-6)^3+4(-3)^3+6(3)^3\bigr)=6\ne0
+\quad\text{in }\F_{11}.                                  \tag{D.3}
+\]
+Thus the six-row quotient preserves the cubic-first signed moment even
+though its linear image is only a plane.
+
+\begin{remark}[The \(H_3\) cubic flag]
+\label{rem:cubic-target-flag}
+Here \(1+4+6=0\) in \(\F_{11}\), so
+Corollary~\ref{cor:mass-zero-cubic} forces the double-line factorization.
+In the basis \(e_1=v_2,e_2=v_3\) of the profile plane, the projective
+cubic is
+\[
+ f(x,y)=x^3+7x^2y+5xy^2+9y^3=(x-y)^2(x-2y),
+\]
+with Hessian \(7x^2+8xy+7y^2=7(x-y)^2\).  Hence the cubic
+intrinsically distinguishes a doubled line and a residual simple line.
+This flag is internal to the decorated profile plane: it supplies no
+canonical map from the full relative-cubic space and no descended
+\(G^+\)-action.
+\end{remark}
+
+\section{The relative-cubic Tate plane}
+\label{app:tate-plane}
+
+Let $W=W_{H_3}$ be the ten-dimensional quotient space from
+Theorem~\ref{thm:rank-three-quotients}, let $\chi$ be the determinant
+character of $G=\operatorname{PGL}_2(11)$, and put
+\[
+ M=\operatorname{Sym}^3(W)\otimes\chi,\qquad R=M^G.
+\]
+The signed cubic of Section~\ref{sec:balanced} lies in $R$, which has
+dimension three.  There is a canonical two-dimensional quotient of
+this source space, but it is not canonically the depth plane of
+Proposition~\ref{prop:modular-depth-quotient}.
+
+We fix the monomial basis of \(\operatorname{Sym}^3(W)\) induced by
+the harmonic--radial coordinates of Section~\ref{sec:rank-three}.
+The \emph{frozen relative basis} is the reduced-echelon basis of the
+simultaneous equations \(gf=\chi(g)f\) for the standard generators
+defining the marked \(H_3\) orbit, ordered by its pivots.  Thus the
+coordinates below specify a reproducible basis, not an additional
+intrinsic structure.  The \emph{three labelled cubic orbit classes}
+are indexed, in order, by the three \(K\)-orbits of sizes \(1,4,6\)
+on \(X_+\).  Finally, the \emph{invariant symmetric-form pencil} is
+\(\mathbb P((\operatorname{Sym}^2W)^G)\).  Its unique rank-one point
+has the form \([\ell^2]\); contraction by its covector \(\ell\) is
+the induced map
+\[
+ \iota_\ell:R\longrightarrow(\operatorname{Sym}^2W)^G.
+\]
+
+\begin{proposition}[Canonical relative-cubic Tate plane]
+\label{prop:relative-cubic-tate-plane}
+The invariant space $R$ and the coinvariant space $M_G$ both have
+dimension three.  The canonical projection and group norm fit into
+\[
+ R\xrightarrow{\ \pi\ }M_G\xrightarrow{\ N\ }R,
+\qquad
+\operatorname{rank}\pi=2,\quad\operatorname{rank}N=1,
+                                                               \tag{E.1}
+\]
+with
+\[
+ \operatorname{im}\pi=\ker N,\qquad
+ \operatorname{im}N=\ker\pi=\langle[1:3:9]\rangle.             \tag{E.2}
+\]
+Contraction by the covector whose square is the unique rank-one member
+of the invariant symmetric-form pencil gives a second construction of
+the same quotient.  In the frozen relative basis its matrix is
+\[
+ \begin{pmatrix}8&1&0\\0&8&1\end{pmatrix},
+                                                               \tag{E.3}
+\]
+and its kernel is again $\langle[1:3:9]\rangle$.
+\end{proposition}
+
+\noindent\emph{Proof mode.}
+The invariant/coinvariant construction and the implications of the
+displayed ranks are conceptual.  The dimensions, norm and projection
+ranks, kernel line, rank-one pencil member, contraction matrix, and
+flattening census are exact finite linear algebra in the
+\texttt{relative-cubic-depth} bundle and its independent replay.
+
+\begin{proof}
+Exact invariant and commutator calculations give
+$\dim R=\dim M_G=3$, the two ranks in (E.1), and $N\pi=0$.
+Thus $\operatorname{im}\pi\subseteq\ker N$; both spaces have dimension
+two, so they are equal.  The computed image of $N$ is the displayed
+kernel of $\pi$, proving (E.2).
+
+The invariant symmetric-form pencil on $W$ has a unique rank-one member
+$\ell^2$, where $\ell$ transforms by $\chi$.  Contracting a
+$\chi$-twisted cubic by $\ell$ cancels the two characters and lands in
+the invariant quadratic pencil.  Exact contraction gives (E.3), whose
+kernel proves the second assertion.
+\end{proof}
+
+The kernel line is intrinsic rather than an artifact of the displayed
+basis.  Among the $133$ projective lines of $R$, it is the unique line
+whose first flattening has rank $9$; the remaining census is one line
+of rank $1$ and $131$ lines of rank $10$.
+
+\begin{remark}[Why the two canonical planes do not glue]
+\label{rem:tate-depth-boundary}
+The three labelled cubic orbit classes project to $M_G$ with relation
+$[2,9,1]$, whereas the three labelled depth profiles have relation
+$[2,8,1]$.  There is therefore no label-preserving linear map carrying
+these source classes to the depth rays.  The integral transfer makes
+the obstruction structural.  In orbit-size order set
+\[
+ s=(1,1,1)^t,\qquad B=s(1,4,6).
+\]
+Then $B^2=11B$.  Divided transfer kills every integral balanced
+relation $a$ with $(1,4,6)a=0$, but $Bs=11s$, so it fixes the depth
+socle after division by $11$.  It separates the source relation from
+the depth socle instead of identifying them.  The doubled-line and
+residual-line flag of Remark~\ref{rem:cubic-target-flag} is internal to
+the depth plane and supplies no missing map.
+\end{remark}
+
+\section{Verification architecture}
+\label{sec:verification}
+
+Table~\ref{tab:verification} separates the mathematical arguments from
+their exact finite inputs.  Here ``certificate'' means a deterministic
+calculation over a prime field, checked against a canonical JSON output
+and a SHA-256 manifest; an independent replay uses a separate
+implementation.  ``Lean'' means that the stated finite implication is
+checked by the Lean kernel.  Neither term replaces the cited
+identification of the classical groups or configurations.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}
+                    >{\raggedright\arraybackslash}p{0.32\textwidth}
+                    >{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
+\toprule
+Result & Proof in the text or classical input & Exact evidence \\
+\midrule
+Matching-secant quotient
+& unique conic divisibility and the four-endpoint switch
+& none \\
+Balanced-orbit completeness
+& Dickson--Giudici maximal subgroups, exceptional normalizers, and unique
+  two-point block systems
+& none \\
+Ranks and the middle Fischer layer
+& affine cocycle, irreducible Fischer modules; Edge--Dye configurations
+& quotient matrices as cross-checks; one radial scalar for \(H_3\);
+  independent replay \\
+Balanced sheets and cubic orientation
+& Propositions~\ref{prop:radical-hadamard} and
+  \ref{prop:modular-sheet-mechanism};
+  Lemma~\ref{lem:hyperplane-square}; signed Gale duality
+& finite moments and ranks as cross-checks; Lean Hilbert arithmetic;
+  Gorenstein replay \\
+Six-profile reconstruction
+& subgroup marks, orbit--stabilizer, and the three-ray lemmas
+& profile rows and replay; decorated-parent bijection \\
+Modular depth and the Tate plane
+& projectivity, fixed-point exactness, and standard modular-module input
+& invariant, coinvariant, and depth calculations with replay \\
+Arithmetic splitting and gluing
+& displayed root calculations; cited subgroup identifications
+& Lean gate and normalized certificate/replay \\
+\bottomrule
+\end{tabular}
+\caption{Proof modes for the principal results.}
+\label{tab:verification}
+\end{table}
+
+The claim-by-claim map is
+\path{verification/trust_manifest.json}; the exact twenty-one-statement
+identity is \path{verification/statement_identity.json}.  From the root
+of the archival source, the aggregate entry point is
+\begin{verbatim}
+python3 verification/verify_release.py
+\end{verbatim}
+It checks the statement identity and all admitted checksum manifests, runs
+the admitted primary checks and independent replays, elaborates the
+arithmetic-gluing and Hilbert-symmetry Lean gates, and rebuilds this
+manuscript through the repository Makefile.
+
+The enumerated review closure accompanying this candidate is pinned by
+\begin{center}
+\small\path{verification/evidence_fingerprint.json}.
+\end{center}
+Its SHA-256 digest is
+\begin{center}
+\small\texttt{71e27a2468c12177c36b8df2f8b7061bcc0a7b}\\[-2pt]
+\texttt{e78bda9230e3288bcb609a2972}.
+\end{center}
+That fingerprint fixes a normalized manuscript, statement contents,
+extractor, paper Makefile, verification documentation, eight evidence
+manifests, command vectors, Lean gates, runner, trust manifest, and
+environment: Python 3.13.12, Lean
+4.32.0-rc1, and Mathlib revision
+\begin{center}
+\small\path{571b8a8e54219b4d393f75f4b8653fac08197fcc}.
+\end{center}
+A successful replay ends with
+\begin{center}
+\texttt{clebsch factorization release: CHECK OK}.
+\end{center}
+The normalization replaces only the displayed fingerprint digest and
+the statement identity's derived full-source hash, avoiding a circular
+self-hash.  This is an explicit review-source allowlist, not a claim to
+hash every file in the repository or every transitive tool dependency.
+An immutable public archive locator must be added before release.
+
+The largest formal component is the gate
+\begin{center}
+\small\texttt{RelativeConicArcs.Gates.}\\[-2pt]
+\texttt{ClebschArithmeticGluing}.
+\end{center}
+Its twenty-three terminals check the displayed roots, matching involutions, projective
+orders, determinant halves, the $A_3/B_3$ orbit calculations, and the
+split--fused conclusion.  For $H_3$, Lean checks the normalized
+certificate rows, intersections, determinant classes, the $11+11$
+signature split, and the shape of the bounded generation words.
+Evaluation and completeness of the $660$-element coset and word
+certificates remain exact generator/replay obligations.  The classical
+names $S_4,A_4,A_5$, and $\operatorname{PSL}_2(11)$ are cited inputs:
+no group name is inferred from an order.
+
+The separate structural gate
+\begin{center}
+\small\texttt{RelativeConicArcs.Gates.}\\[-2pt]
+\texttt{ClebschHilbertSymmetry}
+\end{center}
+checks the arithmetic implication used after the classical Gorenstein
+criterion: a symmetric finite Hilbert function of total length \(2q\)
+whose first values are \(1,q-1,q-1\) has socle degree three and final
+value one.  It does not formalize the Eisenbud--Popescu criterion, the
+identification of the first Hilbert values, or Gorenstein symmetry.
+
+The other computations are load-bearing only at the points shown in
+Table~\ref{tab:verification}.  The matching-module bundle supplies the
+three finite quotient ranks and cross-checks the moment data.  The
+\(H_3\)-equivariant-rank bundle checks the Sylow-normalizer weights,
+\(A_5\)-fixed dimensions, sheet membership, and minimal top and radial
+witnesses.  The balanced-sheet bundle independently reconstructs the
+permutation-module conclusions, while the Gorenstein bundle checks the
+ideals, deletion ranks, socles, and resolutions.  The profile-incidence
+bundle computes one row per double coset; the decorated-parent bundle
+identifies a singleton matching with its parent; the
+relative-cubic-depth bundle computes the modular and Tate rank patterns;
+and the arithmetic-gluing gate checks the normalized splitting data.
+All use exact prime-field arithmetic.  The balanced-orbit classification,
+general divisibility theorem, radical--Hadamard and hyperplane-square
+lemmas, modular-permutation mechanism, three-ray cubic lemma, and
+mass-zero factorization are proved in the text and do not depend on those
+enumerations.
+
+This verification surface proves only the three marked configurations
+defined here.  It does not supply an all-characteristic construction,
+a canonical map from the relative-cubic Tate plane to the depth plane,
+or any passage, holonomy, theta, Fourier, quantum, or Mathieu
+identification.
+
+\section*{AI assistance disclosure}
+
+This project was developed with extensive assistance from OpenAI Codex and
+Anthropic Claude. Under the author's direction, the systems assisted
+throughout with proof exploration, literature research, symbolic and finite
+computation, code and formal-proof development, verification, and manuscript
+drafting and revision. The author checked the resulting arguments,
+computations, code, and cited sources, reviewed and edited all AI-assisted
+material, and assumes responsibility for all content.
+
+\begin{thebibliography}{99}
+
+\bibitem{Atlas1985}
+J.~H.~Conway, R.~T.~Curtis, S.~P.~Norton, R.~A.~Parker, and
+R.~A.~Wilson,
+\newblock \emph{Atlas of Finite Groups},
+\newblock Clarendon Press, Oxford, 1985.
+
+\bibitem{Edge1956}
+W.~L.~Edge,
+\newblock Conics and orthogonal projectivities in a finite plane,
+\newblock \emph{Canadian Journal of Mathematics} \textbf{8} (1956),
+362--382.
+
+\bibitem{Dye1991}
+R.~H.~Dye,
+\newblock Hexagons, conics, $A_5$ and $\mathrm{PSL}_2(K)$,
+\newblock \emph{Journal of the London Mathematical Society} (2)
+\textbf{44} (1991), 270--286.
+\newblock doi:10.1112/jlms/s2-44.2.270.
+
+\bibitem{Giudici2007}
+M.~Giudici,
+\newblock Maximal subgroups of almost simple groups with socle
+$\mathrm{PSL}(2,q)$,
+\newblock arXiv:math/0703685, 2007.
+
+\bibitem{EisenbudPopescu1998}
+D.~Eisenbud and S.~Popescu,
+\newblock The projective geometry of the Gale transform,
+\newblock \emph{Journal of Algebra} \textbf{230} (2000), 127--173.
+\newblock doi:10.1006/jabr.1999.7940.
+
+\bibitem{RodriguezPajaresEtAl2025}
+G.~Rodr\'iguez-Pajares, D.~Ruano, and F.~Salizzoni,
+\newblock A combinatorial description of when a self-associated set of
+points fails to be arithmetically Gorenstein,
+\newblock arXiv:2512.16766v1, 2025.
+
+\bibitem{RuddRigidity2026}
+T.~Rudd,
+\newblock \emph{Reconstructing the Clebsch code from its deep-hole syndrome locus},
+\newblock working paper, 2026.
+
+\bibitem{BraunNebe2025}
+T.~Braun and G.~Nebe,
+\newblock Orthogonal representations of \(\operatorname{SL}_2(q)\) in
+defining characteristic,
+\newblock \emph{Beitr\"age zur Algebra und Geometrie} (2025).
+\newblock doi:10.1007/s13366-024-00763-w.
+
+\end{thebibliography}
+
+\end{document}
