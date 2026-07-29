@@ -39,3 +39,10 @@ and in `verification/README.md`.
 The separately distributed formal companion has the version-independent
 Zenodo concept DOI
 [`10.5281/zenodo.21650878`](https://doi.org/10.5281/zenodo.21650878).
+Its Lean sources are in
+[`finitegeom`](https://github.com/tavisrudd/finitegeom), pinned at commit
+`77c0d6bb5a45a1aa15a0ab90b7db307e1a1804d2`. The paper-facing boundaries are
+`RelativeConicArcs.Gates.ClebschArithmeticGluing`,
+`RelativeConicArcs.Gates.ClebschHilbertSymmetry`, and
+`RelativeConicArcs.Gates.ClebschHyperplaneSquare`; their 37-module closure and
+terminal axiom sets are recorded under `trust/`.
