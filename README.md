@@ -1,5 +1,7 @@
 # Quadratic recovery and cubic orientation in conic matching quotients
 
+[![DOI](https://zenodo.org/badge/1316310863.svg)](https://doi.org/10.5281/zenodo.21682217)
+
 This directory contains the manuscript
 *Quadratic recovery and cubic orientation in conic matching quotients*.
 
