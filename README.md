@@ -1,14 +1,13 @@
-# Quadratic recovery and cubic orientation in conic matching quotients
-
-[![DOI](https://zenodo.org/badge/1316310863.svg)](https://doi.org/10.5281/zenodo.21682217)
+# Quadratic trade rigidity and cubic orientation in conic matching quotients
 
 This directory contains the manuscript
-*Quadratic recovery and cubic orientation in conic matching quotients*.
+*Quadratic trade rigidity and cubic orientation in conic matching quotients*.
 
 The paper studies matching products modulo a conic ideal, their quotient
-ranks `3,6,10`, completeness of quadratic recovery under the
-one-factorization hypothesis, cubic orientation, and self-associated
-arithmetically Gorenstein evaluation sets. Appendices
+ranks `3,6,10`, uniform classification from an intrinsic two-valued
+quadratic trade, edge-selected alternating-cycle radial nonvanishing,
+cubic orientation, and self-associated arithmetically Gorenstein
+evaluation sets. Appendices
 record six-profile reconstruction, modular depth, arithmetic splitting,
 and further `H_3` cubic structure.
 
@@ -16,8 +15,8 @@ and further `H_3` cubic structure.
 
 - `clebsch_factorization.tex`: manuscript source.
 - `clebsch_factorization.pdf`: rebuilt review PDF.
-- `verification/statement_identity.json`: exact identity of all twenty-four
-  theorem-like statements.
+- `verification/statement_identity.json`: exact identity of every
+  theorem-like statement.
 - `verification/trust_manifest.json`: proof-mode and evidence mapping.
 - `verification/evidence_fingerprint.json`: normalized review-source and
   environment fingerprint.
@@ -33,18 +32,11 @@ python3 verification/verify_release.py
 
 The aggregate checks statement identity, exact trust-ledger coverage,
 checksum manifests, primary certificates and independent replays, the
-arithmetic-gluing, Hilbert-symmetry, and hyperplane-square Lean gates, the
-PDF build, and a manuscript-warning scan.
+generic first-wall and shared-radial bundles, the arithmetic-gluing and
+hyperplane-square Lean gates, the PDF build, and a manuscript-warning scan.
 The formal and computational trust boundaries are described in the manuscript
 and in `verification/README.md`.
 
 The separately distributed formal companion has the version-independent
 Zenodo concept DOI
 [`10.5281/zenodo.21650878`](https://doi.org/10.5281/zenodo.21650878).
-Its Lean sources are in
-[`finitegeom`](https://github.com/tavisrudd/finitegeom), pinned at commit
-`77c0d6bb5a45a1aa15a0ab90b7db307e1a1804d2`. The paper-facing boundaries are
-`RelativeConicArcs.Gates.ClebschArithmeticGluing`,
-`RelativeConicArcs.Gates.ClebschHilbertSymmetry`, and
-`RelativeConicArcs.Gates.ClebschHyperplaneSquare`; their 37-module closure and
-terminal axiom sets are recorded under `trust/`.
