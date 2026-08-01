@@ -1,5 +1,9 @@
 # Quadratic trade rigidity and cubic orientation in conic matching quotients
 
+## Read the paper
+
+[**Open the paper (PDF) →**](clebsch_factorization.pdf)
+
 **Series:** *The Clebsch cubic: recovering, orienting, and realizing --- II*
 
 The shared progression is expository; this manuscript is logically
