@@ -18,6 +18,8 @@ LABEL_RE = re.compile(r"^\s*\\label\{([^}]+)\}\s*$")
 EXPECTED_LABELS = (
     "thm:factorization-recovery",
     "prop:matching-secant-quotient",
+    "lem:projective-trade-reduction",
+    "lem:lucas-socle-square-parity",
     "lem:uniform-sheet-exclusion",
     "thm:balanced-orbit-completeness",
     "lem:shared-radial-cycle",
@@ -26,6 +28,7 @@ EXPECTED_LABELS = (
     "cor:h3-middle-layer",
     "prop:radical-hadamard",
     "prop:modular-sheet-mechanism",
+    "thm:fixed-line-chow-rigidity",
     "lem:hyperplane-square",
     "thm:balanced-cubic",
     "cor:graded-evaluation",

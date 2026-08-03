@@ -21,6 +21,7 @@ EXTERNAL_FORMAL_EVIDENCE = {
     "arithmetic-gluing",
     "hilbert-symmetry",
     "hyperplane-square",
+    "paper-ii-structural",
 }
 LEAN_GATE_COMMANDS = [
     [
@@ -35,8 +36,12 @@ LEAN_GATE_COMMANDS = [
         "lean/scripts/guarded-lean",
         "RelativeConicArcs/Gates/ClebschHyperplaneSquare.lean",
     ],
+    [
+        "lean/scripts/guarded-lean",
+        "RelativeConicArcs/Gates/ClebschPaperIIStructural.lean",
+    ],
 ]
-LEAN_GATE_TERMINALS = 26
+LEAN_GATE_TERMINALS = 54
 ALLOWED_LEAN_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 EXPECTED_EVIDENCE = {
     "matching-module": {
@@ -152,6 +157,11 @@ EXPECTED_EVIDENCE = {
             "verification/hyperplane_square.sha256",
         "commands": [],
     },
+    "paper-ii-structural": {
+        "checksum_manifest":
+            "verification/paper_ii_structural.sha256",
+        "commands": [],
+    },
     "generic-first-wall": {
         "checksum_manifest":
             "verification/evidence/source_manifest.sha256",
@@ -210,13 +220,21 @@ EXPECTED_CLAIMS = {
          "small-field-trade", "profile-incidence", "decorated-parent"},
     ),
     "prop:matching-secant-quotient": ({"conceptual"}, set()),
+    "lem:projective-trade-reduction": (
+        {"conceptual", "lean"},
+        {"paper-ii-structural"},
+    ),
+    "lem:lucas-socle-square-parity": (
+        {"conceptual", "classical-input", "certificate", "lean"},
+        {"generic-first-wall", "paper-ii-structural"},
+    ),
     "lem:uniform-sheet-exclusion": (
-        {"conceptual", "classical-input", "certificate"},
-        {"generic-first-wall", "small-field-trade"},
+        {"conceptual", "classical-input", "certificate", "lean"},
+        {"generic-first-wall", "small-field-trade", "paper-ii-structural"},
     ),
     "thm:balanced-orbit-completeness": (
-        {"conceptual", "classical-input", "certificate"},
-        {"generic-first-wall", "small-field-trade"},
+        {"conceptual", "classical-input", "certificate", "lean"},
+        {"generic-first-wall", "small-field-trade", "paper-ii-structural"},
     ),
     "lem:shared-radial-cycle": (
         {"conceptual", "certificate"},
@@ -239,6 +257,10 @@ EXPECTED_CLAIMS = {
         {"conceptual", "classical-input", "certificate"},
         {"matching-module", "h3-equivariant-rank", "balanced-sheet",
          "shared-radial"},
+    ),
+    "thm:fixed-line-chow-rigidity": (
+        {"conceptual", "classical-input", "lean"},
+        {"paper-ii-structural"},
     ),
     "lem:hyperplane-square": (
         {"conceptual", "lean"},
@@ -396,6 +418,21 @@ def check_latex_warnings(log_path: Path) -> None:
     print("clebsch factorization warnings: CHECK OK")
 
 
+def check_manuscript_source_lint(source_path: Path) -> None:
+    source = source_path.read_text(encoding="utf-8")
+    malformed_spacing = re.compile(r",\s*q{1,2}uad\b")
+    findings = [
+        f"line {source.count(chr(10), 0, match.start()) + 1}: {match.group()!r}"
+        for match in malformed_spacing.finditer(source)
+    ]
+    if findings:
+        raise ValueError(
+            "manuscript source lint failed: missing TeX command escape:\n"
+            + "\n".join(findings)
+        )
+    print("clebsch factorization source lint: CHECK OK")
+
+
 def check_lean_axiom_audit(wrapper_output: str) -> None:
     audit = wrapper_output
     dependency_blocks = re.findall(
@@ -534,6 +571,8 @@ def build_fingerprint(
                     / "ClebschHilbertSymmetry.lean",
                     repo_root / "lean" / "RelativeConicArcs" / "Gates"
                     / "ClebschHyperplaneSquare.lean",
+                    repo_root / "lean" / "RelativeConicArcs" / "Gates"
+                    / "ClebschPaperIIStructural.lean",
                 )
             },
             "guarded_lean": sha256(repo_root / "lean" / "scripts" / "guarded-lean"),
@@ -547,6 +586,8 @@ def build_fingerprint(
                 / "ClebschHilbertSymmetry.lean",
                 repo_root / "lean" / "RelativeConicArcs" / "Gates"
                 / "ClebschHyperplaneSquare.lean",
+                repo_root / "lean" / "RelativeConicArcs" / "Gates"
+                / "ClebschPaperIIStructural.lean",
             )
         },
         "lean_gates": [
@@ -555,7 +596,7 @@ def build_fingerprint(
         ],
         "evidence": bundle_fingerprints,
         "expected_success": {
-            "metadata": "metadata: 24 statements, 10 evidence bundles: CHECK OK",
+            "metadata": "metadata: 28 statements, 14 evidence bundles: CHECK OK",
             "release": "clebsch factorization release: CHECK OK",
         },
     }
@@ -628,6 +669,7 @@ def main() -> int:
     parser.add_argument("--update-fingerprint", action="store_true")
     args = parser.parse_args()
 
+    check_manuscript_source_lint(paper_root / "clebsch_factorization.tex")
     run(
         [
             "python3",
@@ -699,8 +741,7 @@ def main() -> int:
         if "certificate" in modes and not claim["evidence"]:
             raise ValueError(f"{claim['label']}: certificate mode has no evidence")
         if "lean" in modes and not (
-            {"arithmetic-gluing", "hilbert-symmetry", "hyperplane-square"}
-            & set(claim["evidence"])
+            EXTERNAL_FORMAL_EVIDENCE & set(claim["evidence"])
         ):
             raise ValueError(f"{claim['label']}: Lean mode has no Lean evidence")
         expected_modes, expected_bundles = EXPECTED_CLAIMS[claim["label"]]
