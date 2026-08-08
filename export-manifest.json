@@ -35,17 +35,17 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "cec5bce7932e7a866265f360eefac1a14b93b2c0d6b2ea6af1f53bb04bc73d0e",
+      "sha256": "35108e111c179f5a9f22ec79cafb51633eafef8bc0a75099d345cfc2551d082c",
       "source_blob": null
     },
     {
-      "bytes": 2458,
+      "bytes": 2971,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "b49e8ebc7562d2e45b6514d1ff7dba9d35d67726c3ec6330d5cb6acc3301daa2",
-      "source_blob": "0ca4b4d2ec19ed94c0344ed94f4d5f39cdedd9ad"
+      "sha256": "729252fa1a28157874957f76377d4974298897bab36a59262ba7791ef8110132",
+      "source_blob": "ca38fa92cbbe45a9561db6dc1ff4306e9e2f24c8"
     },
     {
       "bytes": 282666,
@@ -587,10 +587,10 @@
   "paper_ids": [
     "clebsch_factorization"
   ],
-  "paper_registry_sha256": "603ca0770496b2e4fcbdb4cf5db5126a70f5ed52d5f7e1789d70e3fb83c0f21d",
+  "paper_registry_sha256": "425708671b56fda38b8dba3daaf10945ad37c8647dabf4dd5041d7b37205497d",
   "release_output_policy": "legacy-unspecified",
   "repository": "clebsch-factorization",
   "repository_map_sha256": "59230e8d90cbd3a647c7577061816d50d5f3d2fa9ffa1a21e9d6da3c5251fba9",
   "schema_version": 1,
-  "source_commit": "8450caa9919558ccac42d15373d6234cbe5078db"
+  "source_commit": "96746f704348442e800307ed0ff23b448d169ad4"
 }
