@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "a4eb5e7dbe0fd0020d9260c102ae01ed14c1940b20abd50fd35a1c371adf9354",
+      "sha256": "5e25bedcb0efc7fe112be196a76720de188b0a1b22d035e4bfee81fbc90aea54",
       "source_blob": null
     },
     {
@@ -48,13 +48,13 @@
       "source_blob": "90cecc695d9ca73def13699bd2eb042da5619a5f"
     },
     {
-      "bytes": 300186,
+      "bytes": 300170,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "1a8c026c0f005080f912261c40509362f6b2ec6a7faca0776bc088dcf40897fe",
-      "source_blob": "8c3c64c456a7b0b048ed9e665e74581d435d790f"
+      "sha256": "582403cbf57394ffc535bded9719810905391a37e1524ed0db18fcc7365f234d",
+      "source_blob": "6329bf174566e86bcf3abadc35e3a684fd6d0ed0"
     },
     {
       "bytes": 150678,
@@ -601,5 +601,5 @@
   "repository": "clebsch-factorization",
   "repository_map_sha256": "3837472b201ebe328ee04be49f3a87f4e080d1ca771a5d95081a287017af611c",
   "schema_version": 1,
-  "source_commit": "681e47b26bc86e84ea69c78d16bd168ceda598cc"
+  "source_commit": "f486c502906d73718de187145ea11789a8ce39e5"
 }
