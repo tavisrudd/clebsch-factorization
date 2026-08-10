@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "2d35ad9e1a17c9e7cf0aee468697cec26ffb53b7af8a2493e4e4a5390daa4bb7",
+      "sha256": "4f9657d773b0fd2d7709caba7bc400d5a61c8c8bf51d114b583c2d5d19a42fa9",
       "source_blob": null
     },
     {
@@ -48,13 +48,13 @@
       "source_blob": "a6dceb97a933e8ea10a1f8b1b2dab7ca417c8eb0"
     },
     {
-      "bytes": 294066,
+      "bytes": 294068,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "87ae0454c6dcbc8bfb78504cc48789661e09c2a3d1f1773909a2cfbf60d53c2b",
-      "source_blob": "6cadfbf22cbe5ef78451ee49d28d34aec218f64d"
+      "sha256": "e54ddc5bfdcad13950d8c6a738c6d4cdb32c9a0545116140f2204d0de1b27530",
+      "source_blob": "b4b7fd051d7873f2efda833b2eb349a0611d322e"
     },
     {
       "bytes": 148248,
@@ -62,8 +62,8 @@
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "1abbfc0d7da894eda6472a4a65322b4715fca5bce231274acef9c175f6c8a046",
-      "source_blob": "1f0b11bdd064e47a64d6101922652f42f7a15f2f"
+      "sha256": "e5627ff530a1b689f2a6083bf211757944a5473bcfc776d1ea87b842bc8be263",
+      "source_blob": "2239454c493e60ad24c5c20ad4abfdb3c7396d56"
     },
     {
       "bytes": 567,
@@ -516,13 +516,13 @@
       "source_blob": "e8466b329b7d216b61719f18be5d7e1ef7bee931"
     },
     {
-      "bytes": 21037,
+      "bytes": 21036,
       "mode": "100644",
       "path": "verification/evidence_fingerprint.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "cba36da50ac039ef08a14130a3e62b5c3a2617672696836ec57c126d48ba1c6b",
-      "source_blob": "99903a873610b9e37559e7cc560ced9fb92df489"
+      "sha256": "0a5fc4a720769e6ae1251cff263eceb63a78248af2c85bd8862cb56734b93c96",
+      "source_blob": "02d1163ec555c15ae6b99289f5a460d28491051a"
     },
     {
       "bytes": 4749,
@@ -566,8 +566,8 @@
       "path": "verification/statement_identity.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "e9afd54c21f6da57d9df44cde1a68b5740918d883934d315e1ee7a9f51e79d68",
-      "source_blob": "65444dab49e496fdbaa14a9c5ae6fa87b5202e22"
+      "sha256": "2401099f63e4caa5c9949215a10477eb24003f8f11b35dca6f151552ffd4da01",
+      "source_blob": "fa1c61c18142abf84920910fff0c2f757d837397"
     },
     {
       "bytes": 12394,
@@ -601,5 +601,5 @@
   "repository": "clebsch-factorization",
   "repository_map_sha256": "98abb280d382d281cf08623f05acffa071a53a792cda31e419791fba225e4102",
   "schema_version": 1,
-  "source_commit": "2f0c0e766589fb021be91e1e0b42f41aaf8e302d"
+  "source_commit": "6707f89a4555b573a84956233d06b9c16aa4a402"
 }
