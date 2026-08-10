@@ -1,6 +1,6 @@
 # Export provenance
 
-- Source snapshot commit: `9af3eb4553289402b3d85f0b4ff7430bd24553a3`
+- Source snapshot commit: `2f0c0e766589fb021be91e1e0b42f41aaf8e302d`
 - Repository identity: `tavisrudd/clebsch-factorization`
 - Export method: deterministic, content-addressed source materialization.
 - File hashes and source blob identities are recorded in `export-manifest.json`.
