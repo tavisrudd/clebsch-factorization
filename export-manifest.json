@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "c0a0aa53ac1b8b39ff5be1cd3afd2088ffa6b33395f6d019088966039f8ecade",
+      "sha256": "a4eb5e7dbe0fd0020d9260c102ae01ed14c1940b20abd50fd35a1c371adf9354",
       "source_blob": null
     },
     {
@@ -48,22 +48,22 @@
       "source_blob": "90cecc695d9ca73def13699bd2eb042da5619a5f"
     },
     {
-      "bytes": 299857,
+      "bytes": 300186,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "1d071aebcd3790f8202b39928f13660338d3c8620a51713385fd8626e7a03d48",
-      "source_blob": "4dbeaff907dbf6f2fedeef45750e38c0639b3855"
+      "sha256": "1a8c026c0f005080f912261c40509362f6b2ec6a7faca0776bc088dcf40897fe",
+      "source_blob": "8c3c64c456a7b0b048ed9e665e74581d435d790f"
     },
     {
-      "bytes": 150336,
+      "bytes": 150678,
       "mode": "100644",
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "155e521263ab57000b0701d62264bce39dd5343ebf91e87f6059816131ae9350",
-      "source_blob": "438f7d370bb16219c1624ec5824f73f9ff6dff54"
+      "sha256": "8bf71d57a95f54dc536dbb57259e68085d670eb6413152fec2b2e75351ee2fb4",
+      "source_blob": "c04d0ae07bf2e51cf227c92891b3263fc0fab0b2"
     },
     {
       "bytes": 567,
@@ -596,10 +596,10 @@
   "paper_ids": [
     "clebsch_factorization"
   ],
-  "paper_registry_sha256": "425708671b56fda38b8dba3daaf10945ad37c8647dabf4dd5041d7b37205497d",
+  "paper_registry_sha256": "d49a06e2b25e828827166586dfd3aad92342119e4e38decb1a695c5ad558003c",
   "release_output_policy": "legacy-unspecified",
   "repository": "clebsch-factorization",
-  "repository_map_sha256": "98abb280d382d281cf08623f05acffa071a53a792cda31e419791fba225e4102",
+  "repository_map_sha256": "3837472b201ebe328ee04be49f3a87f4e080d1ca771a5d95081a287017af611c",
   "schema_version": 1,
-  "source_commit": "2ef31f80b3ec5081fac1edd4ff9b55c87eee2d77"
+  "source_commit": "681e47b26bc86e84ea69c78d16bd168ceda598cc"
 }
