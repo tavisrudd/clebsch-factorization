@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "8d352bf1cbc78bed70f3c44bd053711decf34ade4dab50f07ebab1cba6b8ab2b",
+      "sha256": "6236b16eea79daf270c6ab35d8e3b0221896d1c7f28fe2719d6e8e89ce6514eb",
       "source_blob": null
     },
     {
@@ -48,22 +48,22 @@
       "source_blob": "90cecc695d9ca73def13699bd2eb042da5619a5f"
     },
     {
-      "bytes": 300176,
+      "bytes": 294798,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "0300022aa24c3e077be203803524ba46e6292df5d9dcd63f3e56eb7e111bf1d7",
-      "source_blob": "31cc52cba2879e7f02f8a8104dec9ec6ec395392"
+      "sha256": "3abe6abd6d36fd5debdf653065aa9b62b60316c71a7b43e92372f84ad81e0e7f",
+      "source_blob": "21f102ad597eb1a43db26c523abfd5d8826aad27"
     },
     {
-      "bytes": 150659,
+      "bytes": 148674,
       "mode": "100644",
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "966d2962ea5a55d01ece39356b4acdbc71b9a17e8152b4eae1cf19b7ab218ee1",
-      "source_blob": "c972735cf9361c786c3e8c33e1cf38ec683c81ce"
+      "sha256": "384fd1fdcb42558a91b95ec7fa57bff1e235c3d03fc2830db1393a34869ef839",
+      "source_blob": "c7ea863ac08be7adb8f894415233bffca3d42c8d"
     },
     {
       "bytes": 567,
@@ -98,8 +98,8 @@
       "path": "verification/check_manuscript_build.py",
       "rewrites": [],
       "role": "verification",
-      "sha256": "de9e49d6527f50b81410dd755c74035776527d806a69a5fb97a0323849cf19c2",
-      "source_blob": "90e5202089567ddfe93624911a255211865001e8"
+      "sha256": "069f21ee10735fddeaaf30032beb0d4f8e6649a89d8cc0e85cafbe2003c5ede3",
+      "source_blob": "12af350f0d03b70e09f343922026e807d7c07a7d"
     },
     {
       "bytes": 7124,
@@ -596,10 +596,10 @@
   "paper_ids": [
     "clebsch_factorization"
   ],
-  "paper_registry_sha256": "d49a06e2b25e828827166586dfd3aad92342119e4e38decb1a695c5ad558003c",
+  "paper_registry_sha256": "ffc21b0a2a999815d4cd30d2416f39cd4b51c578dceb8416e599e4cb3257c553",
   "release_output_policy": "legacy-unspecified",
   "repository": "clebsch-factorization",
-  "repository_map_sha256": "3837472b201ebe328ee04be49f3a87f4e080d1ca771a5d95081a287017af611c",
+  "repository_map_sha256": "2a861f5d01cb01433066950bd72b7bddb397ac5ba0a357dc236b20e9070744db",
   "schema_version": 1,
-  "source_commit": "90f3d7b784ec6654e57111a69030990a53f3c18e"
+  "source_commit": "20184be6facc3676f4e1c7be472fc79fbacaf6f9"
 }
