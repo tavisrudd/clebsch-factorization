@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "1ad3fc23f1c2b5e78f3893a619ce3151e90ba4d84ebdc004eacc5ae690a92cd9",
+      "sha256": "57bf400b547d1faf52a3286d474b30bf690a37fe6e695b8050bb425cba909d21",
       "source_blob": null
     },
     {
@@ -48,22 +48,22 @@
       "source_blob": "90cecc695d9ca73def13699bd2eb042da5619a5f"
     },
     {
-      "bytes": 295669,
+      "bytes": 295658,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "0a30f518c39bc6acc012bfa999025b452a34b9d1a3478f688de2cf52144a23a1",
-      "source_blob": "5ae73ea78c750972a28aa1296dc5da5f4dbbe1bf"
+      "sha256": "9a8d57dd047baef97ab2b90c65b22cb8b102dcb1726b4ec8c2721b2609838d0f",
+      "source_blob": "76a3978ca6ceca169eb1dbe1db403c58629afaf5"
     },
     {
-      "bytes": 150658,
+      "bytes": 150662,
       "mode": "100644",
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "cba2b3be7b80322f56c4b60fb34f2754c5479a1b6a7d121d3debd74951769549",
-      "source_blob": "948b625dcd8cfa174789a47217797352ee1cc442"
+      "sha256": "312d82b05464ca7ab5ff83c5e05ae846ef0994dbfd0de2a790905960bd7e125e",
+      "source_blob": "5f7c31816bad2beb6ae6f0b1e680ebcc0c8da1e5"
     },
     {
       "bytes": 567,
@@ -566,8 +566,8 @@
       "path": "verification/statement_identity.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "c1885b38c55d1bfcdaf649364376145b0f4e97283bb8cd63ce172a20bff76eb4",
-      "source_blob": "b11f244c63d627865364c7fb6c7533105e556ba8"
+      "sha256": "a5427dc64c30773d53a86fb39adcaf67db32ac62cc690b36f79ce46382ccf10c",
+      "source_blob": "3dfcf8b31abeae2df1171c23f76442642165d974"
     },
     {
       "bytes": 12394,
@@ -601,5 +601,5 @@
   "repository": "clebsch-factorization",
   "repository_map_sha256": "b1287d69c4398954d5ac0d89e29bbd2425c5da957d3e7a6380f638513346803a",
   "schema_version": 1,
-  "source_commit": "9b9a2fe546a034d105facc8b26b00ff36e2fc8b5"
+  "source_commit": "bb29815b8a0e57b42954ffba96a89dda15243640"
 }
