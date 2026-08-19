@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "cec41d67329e97810d1b1424756e0ea2de974618c1a520a5af18103df3f772d0",
+      "sha256": "2230c03601267f1c274dd0566b1e4618b84cc7407dd721f239515a96f7c35fbe",
       "source_blob": null
     },
     {
@@ -601,5 +601,5 @@
   "repository": "clebsch-factorization",
   "repository_map_sha256": "b1287d69c4398954d5ac0d89e29bbd2425c5da957d3e7a6380f638513346803a",
   "schema_version": 1,
-  "source_commit": "62fc019fc11cda4b0669f8d7944b36a1ed07b610"
+  "source_commit": "13e393f59fff140df575b70814b51e9248550344"
 }
