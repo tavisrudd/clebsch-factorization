@@ -35,7 +35,7 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "42e2ad0aacdde38f95a45f6b5f7c37fb14d4994379e32cd8bddedef764b854b1",
+      "sha256": "9017b5c0c2006fcf31a1a4d0120aba3a464dabb4865ef09ef0d00a14608c194d",
       "source_blob": null
     },
     {
@@ -48,13 +48,13 @@
       "source_blob": "56276017418f6c8ad03ee529874ac652cf220831"
     },
     {
-      "bytes": 295451,
+      "bytes": 295446,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "cb5d4e54bb22fdfee5d614dffdc4509ec984b9167f5bee9c1f0eb9b687972d12",
-      "source_blob": "36e0b736eba03942484e0b6c22b41613517c95c2"
+      "sha256": "157ce2a279999b10a267983e355f883acdfebaf4271e1d2285e5455f705ce7f8",
+      "source_blob": "8b53eea4f219b15285345f7538a1c7604982ae06"
     },
     {
       "bytes": 150359,
@@ -62,8 +62,8 @@
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "5a34144dd542e7965893c811ecb1e6941fcd301b1ae9324707d007d3601f4697",
-      "source_blob": "51041d7525da776fd6c19227653b1e0bc9ed71ac"
+      "sha256": "54784bcb7656815881c97ab191010c260868d08d4fb404dbdf8c2a07e6a08ff4",
+      "source_blob": "f597a6957b15093043f4c9228b7ed0901d58ae2f"
     },
     {
       "bytes": 567,
@@ -521,8 +521,8 @@
       "path": "verification/evidence_fingerprint.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "c0682b01efe1dfa78cb080bfae8f1ed58f61c33dfd1e65c797b9c74c53c8aaee",
-      "source_blob": "79ce40ad8f1d1364fe104082740dbff20d662c89"
+      "sha256": "0562bb56d3adfeee4092d494ce22e82fb655a0844aaaf5c020b9bc4eaf6da147",
+      "source_blob": "3c3efa90ee4109059e2f86b9433f8487d5d99ddd"
     },
     {
       "bytes": 4749,
@@ -566,8 +566,8 @@
       "path": "verification/statement_identity.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "89367bd0cfe3ee629e0a470b2e4548616e4df198953bd64c3a5f82ecf855d568",
-      "source_blob": "b165c068afd2ddd0631556d4da95b536a32686e5"
+      "sha256": "db1941d3dff32688aa26291f9431fd563da3521d36d44765da4554a93d2b5b8b",
+      "source_blob": "f3909e7c8dd87007ce13cc5a7c49d9cabbe86252"
     },
     {
       "bytes": 12394,
@@ -601,5 +601,5 @@
   "repository": "clebsch-factorization",
   "repository_map_sha256": "c0542d39c9b7459acafaf90873f9f15956351a8dba3e6e52149c0dddd571c39b",
   "schema_version": 1,
-  "source_commit": "91817b51a4689bce7c81f78d21441557d6e17550"
+  "source_commit": "23330404944c09dc240a2c7c5597a5bc77f8ea2a"
 }
