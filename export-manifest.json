@@ -18,8 +18,8 @@
       "path": ".zenodo.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "dba3e46711e6617c657f068d183a742e097e239675ee03d9fa31045ba37eaba2",
-      "source_blob": "775961900eaf37021d911e957ac034596f92a585"
+      "sha256": "03406a5bdcb9a8da540716fc8c91586d82205f55d2addf8b7650b396080fd613",
+      "source_blob": "4929d9fa1959595c071115cd38bb012edee8cd8a"
     },
     {
       "bytes": 470,
@@ -35,35 +35,35 @@
       "mode": "100644",
       "path": "PROVENANCE.md",
       "role": "provenance",
-      "sha256": "9017b5c0c2006fcf31a1a4d0120aba3a464dabb4865ef09ef0d00a14608c194d",
+      "sha256": "0766e352fb381161b9d6054d2abf6cade9830d5558bb1e0452e15220ee75d227",
       "source_blob": null
     },
     {
-      "bytes": 3200,
+      "bytes": 3292,
       "mode": "100644",
       "path": "README.md",
       "rewrites": [],
       "role": "support",
-      "sha256": "df1307e29b96795c74d0f0940d439a9c337389a0059ad5e646961214ee75654d",
-      "source_blob": "56276017418f6c8ad03ee529874ac652cf220831"
+      "sha256": "c8656a079c6edc83320d4df92e158a4efc16895aac61501f99aeac91fbe093b7",
+      "source_blob": "c18a4c4922ff3fc7a1acffe1576ca3d91c00ee23"
     },
     {
-      "bytes": 295446,
+      "bytes": 296250,
       "mode": "100644",
       "path": "clebsch_factorization.pdf",
       "rewrites": [],
       "role": "release-output",
-      "sha256": "157ce2a279999b10a267983e355f883acdfebaf4271e1d2285e5455f705ce7f8",
-      "source_blob": "8b53eea4f219b15285345f7538a1c7604982ae06"
+      "sha256": "e045f7de81c385d59e2aa173de668485aa5bb5e313c653160d36d4dedaacbdff",
+      "source_blob": "290789540feb97005c09ddf58393a31015cb791b"
     },
     {
-      "bytes": 150359,
+      "bytes": 150613,
       "mode": "100644",
       "path": "clebsch_factorization.tex",
       "rewrites": [],
       "role": "manuscript-source",
-      "sha256": "54784bcb7656815881c97ab191010c260868d08d4fb404dbdf8c2a07e6a08ff4",
-      "source_blob": "f597a6957b15093043f4c9228b7ed0901d58ae2f"
+      "sha256": "1648dfb878b414ec74508dc7ab76ba511647bcf1b6f49ef43f3a4477762f57ae",
+      "source_blob": "b9971213bede3636279203c0fdf08915d5de9f59"
     },
     {
       "bytes": 567,
@@ -521,8 +521,8 @@
       "path": "verification/evidence_fingerprint.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "0562bb56d3adfeee4092d494ce22e82fb655a0844aaaf5c020b9bc4eaf6da147",
-      "source_blob": "3c3efa90ee4109059e2f86b9433f8487d5d99ddd"
+      "sha256": "c2732e7c102c9be489590c76c6f1c37409ff588ab42445a1890244ec1d433901",
+      "source_blob": "f7fec1d0ad500225157f4e2edd07b39a38bf5466"
     },
     {
       "bytes": 4749,
@@ -561,13 +561,13 @@
       "source_blob": "5e0ccaa9e813736b6e3f8f95bef5e2a653858bd3"
     },
     {
-      "bytes": 35893,
+      "bytes": 35924,
       "mode": "100644",
       "path": "verification/statement_identity.json",
       "rewrites": [],
       "role": "verification",
-      "sha256": "db1941d3dff32688aa26291f9431fd563da3521d36d44765da4554a93d2b5b8b",
-      "source_blob": "f3909e7c8dd87007ce13cc5a7c49d9cabbe86252"
+      "sha256": "7792425a63a708a3d304bad86459e2372329817f96185ee5ec7e1f5a034bd5d8",
+      "source_blob": "225bde90dc87ceba5c49d1b871a1f32bdb5995c3"
     },
     {
       "bytes": 12394,
@@ -596,10 +596,10 @@
   "paper_ids": [
     "clebsch_factorization"
   ],
-  "paper_registry_sha256": "e3e739fd4bca142a8c245291c1d30125fa468718cc8351c23c2b2fc3c452e84e",
+  "paper_registry_sha256": "0f703cd3ebc2cce20cc63b62429557a98c57e4e77ccec4738e668d4f0066b550",
   "release_output_policy": "legacy-unspecified",
   "repository": "clebsch-factorization",
-  "repository_map_sha256": "c0542d39c9b7459acafaf90873f9f15956351a8dba3e6e52149c0dddd571c39b",
+  "repository_map_sha256": "b58ac61c524b0f923124defdf01266eb9de73b50c8df8500e886e53fbfa37dfc",
   "schema_version": 1,
-  "source_commit": "23330404944c09dc240a2c7c5597a5bc77f8ea2a"
+  "source_commit": "0c9eb45929e8571c34199247169a26f2f153a16d"
 }
