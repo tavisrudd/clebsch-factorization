@@ -1,6 +1,7 @@
 # Export provenance
 
-- Source snapshot commit: `4a7f31771b33c6efea9d81a5a334b5c2e53cda86`
-- Repository identity: `tavisrudd/clebsch-factorization`
+- Public repository: `https://github.com/tavisrudd/clebsch-factorization`
+- Exported-content SHA-256: `51515fdb357daf506e545e81d0648ebbbc9411e235f509fa50171603264299fa`
 - Export method: deterministic, content-addressed source materialization.
-- File hashes and source blob identities are recorded in `export-manifest.json`.
+- File hashes are recorded in `export-manifest.json`; the public Git commit is the repository's own `git rev-parse HEAD`.
+- Private source-authority and exporter-registry identifiers are deliberately not part of this public provenance record.
